@@ -1,6 +1,6 @@
 package com.cscecee.basesite.core.udp.test;
 
-//指数rpc输输出
+//指数rpc输输出,1,222
 public class ExpResponse {
 
 	private long value;

@@ -1,6 +1,6 @@
 package com.cscecee.basesite.core.udp.test;
 
-//指数rpc输入
+//指数输入 2!=1*2, 3!=1*2*3
 public class ExpRequest {
 	private int base;
 	private int exp;

@@ -36,13 +36,6 @@ public class FibRequestHandler implements IMessageHandler {
 			fibs.add(value);
 		}
 		
-//		this.requestId = requestId;
-//		this.isRsp = isRsp;
-//		this.fromId = fromId;
-//		this.command = command;
-//		this.isCompressed = isCompressed;
-//		this.data = data;
-		
 		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
 		writeStr(buf, requestId);// len+ reqId
 		buf.writeBoolean(true);//isRsp=true
@@ -52,7 +45,6 @@ public class FibRequestHandler implements IMessageHandler {
 		byte[] outData = (fibs.get(n) + "").getBytes(Charsets.UTF8);
 		buf.writeInt(outData.length);// len
 		buf.writeBytes(outData);// data
-		writeStr(buf, fibs.get(n) + "");
 		//响应输出
 		logger.info("send fib_res>>>>>" + fibs.get(n));
 		ctx.writeAndFlush(new DatagramPacket(buf, sender));
