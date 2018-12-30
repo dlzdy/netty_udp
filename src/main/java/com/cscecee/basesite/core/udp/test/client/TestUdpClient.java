@@ -19,8 +19,7 @@ public class TestUdpClient {
 
 	public TestUdpClient(UdpClient client) {
 		this.client = client;
-		// this.client.register("time", new TimeRequestHandler());
-
+		this.client.register("time", new TimeRequestHandler());
 	}
 
 	public String fib(int n) {
@@ -39,6 +38,7 @@ public class TestUdpClient {
 	public static void main(String[] args) throws Exception {
 		UdpClient client = new UdpClient("localhost", 8800, 0, UUID.randomUUID().toString().replaceAll("-", ""));
 		client.bind();
+		client.startHeatbeat();
 		TestUdpClient testClient = new TestUdpClient(client);
 		
 		// System.out.printf("fib(%d) = %s\n", 2, (testClient.fib(2)+""));
@@ -57,20 +57,20 @@ public class TestUdpClient {
 //		System.out.printf("exp2(%d) = %d cost=%dns\n", 2, expResp.getValue(), expResp.getCostInNanos());
 
 		
-		for (int i = 0; i < 30; i++) {
-			try {
-				String strJsonObj = testClient.exp(2, i) + "";
-				ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
-				if (expResp != null) {
-					System.out.printf("exp2(%d) = %d cost=%dns\n", i, expResp.getValue(), expResp.getCostInNanos());
-				} else {
-					System.err.println("null");
-				}
-				Thread.sleep(100);
-			} catch (RPCException e) {
-				i--; // retry
-			}
-		}
-		client.close();
+//		for (int i = 0; i < 30; i++) {
+//			try {
+//				String strJsonObj = testClient.exp(2, i) + "";
+//				ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
+//				if (expResp != null) {
+//					System.out.printf("exp2(%d) = %d cost=%dns\n", i, expResp.getValue(), expResp.getCostInNanos());
+//				} else {
+//					System.err.println("null");
+//				}
+//				Thread.sleep(100);
+//			} catch (RPCException e) {
+//				i--; // retry
+//			}
+//		}
+		//client.close();
 	}
 }

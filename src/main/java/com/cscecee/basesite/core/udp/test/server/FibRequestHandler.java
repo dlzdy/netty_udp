@@ -17,7 +17,7 @@ import io.netty.channel.socket.DatagramPacket;
 
 
 //斐波那契和指数计算处理
-public class FibRequestHandler implements RpcMsgHandler {
+public class FibRequestHandler extends RpcMsgHandler {
 
 	private final static Logger logger = LoggerFactory.getLogger(FibRequestHandler.class);
 	
@@ -40,7 +40,7 @@ public class FibRequestHandler implements RpcMsgHandler {
 		writeStr(buf, requestId);// len+ reqId
 		buf.writeBoolean(true);//isRsp=true
 		writeStr(buf, "0" );//len+fromId
-		writeStr(buf, "fib_res");//****
+		writeStr(buf, "fib_rsp");//****
 		buf.writeBoolean(false);//isCompressed
 		byte[] outData = (fibs.get(n) + "").getBytes(Charsets.UTF8);
 		buf.writeInt(outData.length);// len
@@ -49,8 +49,5 @@ public class FibRequestHandler implements RpcMsgHandler {
 		logger.info("send fib_res>>>>>" + fibs.get(n));
 		ctx.writeAndFlush(new DatagramPacket(buf, sender));
 	}
-	private void writeStr(ByteBuf buf, String s) {
-		buf.writeInt(s.length());
-		buf.writeBytes(s.getBytes(Charsets.UTF8));
-	}
+
 }

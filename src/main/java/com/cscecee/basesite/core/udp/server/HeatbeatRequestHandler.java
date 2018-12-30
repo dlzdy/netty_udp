@@ -1,4 +1,4 @@
-package com.cscecee.basesite.core.udp.test.server;
+package com.cscecee.basesite.core.udp.server;
 
 import java.net.InetSocketAddress;
 
@@ -17,35 +17,22 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 
 
-public class ExpRequestHandler extends RpcMsgHandler {
+public class HeatbeatRequestHandler extends RpcMsgHandler {
 
-	private final static Logger logger = LoggerFactory.getLogger(ExpRequestHandler.class);
+	private final static Logger logger = LoggerFactory.getLogger(HeatbeatRequestHandler.class);
 
 	@Override
 	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, String requestId, byte[] data) {
-		// ExpRequest
-		ExpRequest message = JSON.parseObject(new String(data), ExpRequest.class);
-		int base = message.getBase();
-		int exp = message.getExp();
-		long start = System.nanoTime();
-		long res = 1;
-		for (int i = 0; i < exp; i++) {
-			res *= base;
-		}
-		long cost = System.nanoTime() - start;
-		//响应输出
+		String reqData = new String(data);
 		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
 		writeStr(buf, requestId);// len+ reqId
 		buf.writeBoolean(true);//isRsp=true
 		writeStr(buf, "0" );//len+fromId
-		writeStr(buf, "exp_rsp");//command
+		writeStr(buf, "heatbeat_rsp");//****
 		buf.writeBoolean(false);//isCompressed
-		String strOutData = JSON.toJSONString(new ExpResponse(res, cost));
-		byte[] outData = strOutData.getBytes(Charsets.UTF8);
-		buf.writeInt(outData.length);// len
-		buf.writeBytes(outData);// data
+		buf.writeInt(data.length);// len
+		buf.writeBytes(data);// data
 		//响应输出
-		logger.info("send exp_res>>>>>" + strOutData);
-		ctx.writeAndFlush(new DatagramPacket(buf, sender));
-	}
+		logger.info("send fib_res>>>>>" + reqData);
+		ctx.writeAndFlush(new DatagramPacket(buf, sender));	}
 }

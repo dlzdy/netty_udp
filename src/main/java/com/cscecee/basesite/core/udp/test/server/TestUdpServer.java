@@ -18,6 +18,7 @@ public class TestUdpServer {
 		UdpServer server = new UdpServer(8800);
 		server.register("fib", new FibRequestHandler());
 		server.register("exp", new ExpRequestHandler());
+		server.register("heatbeat", new ExpRequestHandler());
 		TestUdpServer testServer = new TestUdpServer(server);
 		server.bind();
 		//testServer.time();
