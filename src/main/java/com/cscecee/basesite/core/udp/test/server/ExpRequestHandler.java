@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.cscecee.basesite.core.udp.common.Charsets;
-import com.cscecee.basesite.core.udp.common.IMessageHandler;
+import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 import com.cscecee.basesite.core.udp.test.ExpRequest;
 import com.cscecee.basesite.core.udp.test.ExpResponse;
 
@@ -17,7 +17,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 
 
-public class ExpRequestHandler implements IMessageHandler {
+public class ExpRequestHandler implements RpcMsgHandler {
 
 	private final static Logger logger = LoggerFactory.getLogger(ExpRequestHandler.class);
 

@@ -28,7 +28,15 @@ public class UdpServer extends UdpEndPoint {
 			ChannelFuture channelFuture = bootstrap.bind(getPort()).sync();
 			channel = channelFuture.channel();
 			logger.info("server is start up, bind port = " +  port);
-			channel.closeFuture().await();
+			new Thread() {
+				public void run() {
+					try {
+						channel.closeFuture().await();
+					} catch (Exception e) {
+						logger.error("failed", e);
+					}
+				}
+			}.start();
 		}else {
 			logger.warn("channel is active, not need bind()");	
 		}

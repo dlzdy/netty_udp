@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.cscecee.basesite.core.udp.common.Charsets;
-import com.cscecee.basesite.core.udp.common.IMessageHandler;
+import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -13,7 +13,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 
 
-public class TimeRequestHandler implements IMessageHandler {
+public class TimeRequestHandler implements RpcMsgHandler {
 	 SimpleDateFormat aDate=new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
 	/**
 	 * payload = time

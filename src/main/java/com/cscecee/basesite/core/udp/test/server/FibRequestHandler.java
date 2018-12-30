@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.cscecee.basesite.core.udp.common.Charsets;
-import com.cscecee.basesite.core.udp.common.IMessageHandler;
+import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -17,7 +17,7 @@ import io.netty.channel.socket.DatagramPacket;
 
 
 //斐波那契和指数计算处理
-public class FibRequestHandler implements IMessageHandler {
+public class FibRequestHandler implements RpcMsgHandler {
 
 	private final static Logger logger = LoggerFactory.getLogger(FibRequestHandler.class);
 	

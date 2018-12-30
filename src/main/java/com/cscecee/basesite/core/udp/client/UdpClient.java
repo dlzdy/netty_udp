@@ -5,7 +5,7 @@ import java.net.InetSocketAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.cscecee.basesite.core.udp.common.MessageReq;
+import com.cscecee.basesite.core.udp.common.RpcMsgReq;
 import com.cscecee.basesite.core.udp.common.RPCException;
 import com.cscecee.basesite.core.udp.common.RequestId;
 import com.cscecee.basesite.core.udp.common.RpcFuture;
@@ -84,7 +84,7 @@ public class UdpClient extends UdpEndPoint {
 			throw new RPCException(" channel is not active");
 		}
 		
-		MessageReq output = new MessageReq(RequestId.next(), myId, command, isCompressed, data);
+		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
 		return udpMessageHandler.send(getRemoteSocketAddress(), output);
 	}
 

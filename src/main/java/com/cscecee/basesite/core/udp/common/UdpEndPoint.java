@@ -27,25 +27,25 @@ public abstract class UdpEndPoint {
 	//
 	protected Channel channel;
 
-	protected UdpMessageHandler udpMessageHandler;
+	protected UdpChannelHandler udpMessageHandler;
 	
 	protected Throwable ConnectionClosed = new Exception("rpc connection not active error");
 	
-	protected MessageHandlers handlers = new MessageHandlers();
+	protected RpcMsgUtils handlers = new RpcMsgUtils();
 
 	
 	public Channel getChannel() {
 		return channel;
 	}
 
-	public MessageHandlers getHandlers() {
+	public RpcMsgUtils getHandlers() {
 		return handlers;
 	}
 
 	/*
 	 * 注册服务的快捷方式
 	 */
-	public void register(String type,  IMessageHandler handler) {
+	public void register(String type,  RpcMsgHandler handler) {
 		handlers.register(type, handler);
 	}
 
@@ -58,7 +58,7 @@ public abstract class UdpEndPoint {
 		bootstrap.channel(NioDatagramChannel.class);
 		// 3.配置TCP/UDP参数。
 		// 4.配置handler和childHandler，数据处理器。
-		udpMessageHandler =  new UdpMessageHandler(this,10);
+		udpMessageHandler =  new UdpChannelHandler(this,10);
 		
 		// bootstrap.handler(new LoggingHandler(LogLevel.INFO));
 		bootstrap.handler(new ChannelInitializer<NioDatagramChannel>() {

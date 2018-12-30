@@ -28,9 +28,9 @@ import io.netty.handler.codec.DecoderException;
 /**
  * 处理发送消息，接收消息
  */
-public class UdpMessageHandler extends SimpleChannelInboundHandler<DatagramPacket> {
+public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacket> {
 
-	private final static Logger logger = LoggerFactory.getLogger(UdpMessageHandler.class);
+	private final static Logger logger = LoggerFactory.getLogger(UdpChannelHandler.class);
 	
 	// 业务线程池
 	private ThreadPoolExecutor executor;
@@ -44,7 +44,7 @@ public class UdpMessageHandler extends SimpleChannelInboundHandler<DatagramPacke
 	private Throwable ConnectionClosed = new Exception("rpc connection not active error");
 	private Throwable NotFoundCommand = new Exception("not found command");
 	
-	public UdpMessageHandler(UdpEndPoint udpEndPoint, int workerThreads) {
+	public UdpChannelHandler(UdpEndPoint udpEndPoint, int workerThreads) {
 		// 业务队列最大1000,避免堆积
 		// 如果子线程处理不过来,io线程也会加入业务逻辑(callerRunsPolicy)
 		BlockingQueue<Runnable> queue = new ArrayBlockingQueue<>(1000);
@@ -97,9 +97,9 @@ public class UdpMessageHandler extends SimpleChannelInboundHandler<DatagramPacke
 			in.readBytes(data);
 			// 用业务线程处理消息
 			this.executor.execute(() -> {
-				MessageCommon messageInput;
+				RpcMsg messageInput;
 				if (isRsp) {//响应消息
-					messageInput = new MessageRsp(requestId, fromId, command, isCompressed, data);
+					messageInput = new RpcMsgRsp(requestId, fromId, command, isCompressed, data);
 					RpcFuture future = (RpcFuture) pendingTasks.remove(messageInput.getRequestId());
 					if (future == null) {
 						logger.error("future not found with command {}", messageInput.getCommand());
@@ -115,7 +115,7 @@ public class UdpMessageHandler extends SimpleChannelInboundHandler<DatagramPacke
 					clientMap.put("time", System.currentTimeMillis() + "");
 					
 					peersMap.put(fromId, clientMap);//放入缓存，记录对端的ip，port
-					messageInput = new MessageReq(requestId, fromId, command, isCompressed, data);
+					messageInput = new RpcMsgReq(requestId, fromId, command, isCompressed, data);
 					this.handleMessage(ctx, sender, messageInput);
 				}
 			});
@@ -125,10 +125,10 @@ public class UdpMessageHandler extends SimpleChannelInboundHandler<DatagramPacke
 		}
 	}
 	
-	private void handleMessage(ChannelHandlerContext ctx, InetSocketAddress sender, MessageCommon messageInput) {
+	private void handleMessage(ChannelHandlerContext ctx, InetSocketAddress sender, RpcMsg messageInput) {
 		// 业务逻辑在这里
 		
-		IMessageHandler handler = udpEndPoint.getHandlers().get(messageInput.getCommand());
+		RpcMsgHandler handler = udpEndPoint.getHandlers().get(messageInput.getCommand());
 		if (handler != null) {
 			handler.handle(ctx, sender, messageInput.getRequestId(),  messageInput.getData());
 		} else {
@@ -159,7 +159,7 @@ public class UdpMessageHandler extends SimpleChannelInboundHandler<DatagramPacke
 	 * @param msgReq
 	 * @return
 	 */
-	public RpcFuture send(String peerId, MessageReq msgReq) {
+	public RpcFuture send(String peerId, RpcMsgReq msgReq) {
 		Map<String, String> peerMap = peersMap.get(peerId);
 		RpcFuture future = new RpcFuture();
 		if (peerMap == null || peerMap.size() == 0) {
@@ -182,7 +182,7 @@ public class UdpMessageHandler extends SimpleChannelInboundHandler<DatagramPacke
 	 * @param msgReq
 	 * @return
 	 */
-	public  RpcFuture send(InetSocketAddress remoteSocketAddress, MessageReq msgReq) {
+	public  RpcFuture send(InetSocketAddress remoteSocketAddress, RpcMsgReq msgReq) {
 		RpcFuture future = new RpcFuture();
 
 		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();

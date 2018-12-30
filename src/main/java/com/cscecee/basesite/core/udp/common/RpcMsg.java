@@ -7,7 +7,7 @@ package com.cscecee.basesite.core.udp.common;
  * @author zhangdy
  *
  */
-public class MessageCommon {
+public class RpcMsg {
 	/**
 	 * 消息号
 	 */
@@ -33,7 +33,7 @@ public class MessageCommon {
 	 */
 	protected byte[] data;
 
-	public MessageCommon(String requestId, Boolean isRsp, String fromId, String command, Boolean isCompressed,
+	public RpcMsg(String requestId, Boolean isRsp, String fromId, String command, Boolean isCompressed,
 			byte[] data) {
 		this.requestId = requestId;
 		this.isRsp = isRsp;

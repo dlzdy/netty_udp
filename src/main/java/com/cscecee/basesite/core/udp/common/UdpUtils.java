@@ -10,7 +10,7 @@ public class UdpUtils {
 	 * @param message
 	 * @return
 	 */
-	public static MessageCommon send(String server, int udpPort, MessageCommon message) {
+	public static RpcMsg send(String server, int udpPort, RpcMsg message) {
 		
 		return null;
 	}
@@ -21,7 +21,7 @@ public class UdpUtils {
 	 * @param message
 	 * @return
 	 */
-	public static MessageCommon send(String fromId, MessageCommon message) {
+	public static RpcMsg send(String fromId, RpcMsg message) {
 		
 		return null;
 	}

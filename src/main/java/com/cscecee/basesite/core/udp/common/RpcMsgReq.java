@@ -5,9 +5,9 @@ package com.cscecee.basesite.core.udp.common;
  * @author zhangdy
  *
  */
-public class MessageReq extends MessageCommon{
+public class RpcMsgReq extends RpcMsg{
 
-	public MessageReq(String requestId, String fromId, String command, Boolean isCompressed,
+	public RpcMsgReq(String requestId, String fromId, String command, Boolean isCompressed,
 			byte[] payload) {
 		super(requestId, false, fromId, command, isCompressed, payload);
 	}
