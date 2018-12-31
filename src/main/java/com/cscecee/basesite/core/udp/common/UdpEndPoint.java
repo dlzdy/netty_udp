@@ -1,6 +1,7 @@
 package com.cscecee.basesite.core.udp.common;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -20,14 +21,14 @@ public abstract class UdpEndPoint {
 	private final static Logger logger = LoggerFactory.getLogger(UdpEndPoint.class);
 
 	// 客户端ID
-	protected String myId;
+	protected String myId = "";
 	//
 	protected Bootstrap bootstrap;
 	//
 	protected EventLoopGroup eventLoopGroup;
 	//
 	protected Channel channel;
-
+	
 	protected InetSocketAddress remoteSocketAddress = null;
 
 	protected UdpChannelHandler udpMessageHandler;
@@ -127,30 +128,16 @@ public abstract class UdpEndPoint {
 	 * @param isCompressed
 	 * @param data
 	 * @return
+	 * @throws ExecutionException 
+	 * @throws InterruptedException 
 	 */
-//	public <T> T send(String peerId, String command, boolean isCompressed, byte[] data) {
-//		RpcFuture<T> future = sendAsync(command, isCompressed, data);
-//		try {
-//			return future.get();
-//		} catch (Exception e) {
-//			throw new RPCException(e);
-//		}
-//	}
-
-	/**
-	 * 适用于客户端-->服务器
-	 * 
-	 * @param type
-	 * @param payload
-	 * @return
-	 */
-	public byte[] send(String command, boolean isCompressed, byte[] data) {
-		RpcFuture future = sendAsync(command, isCompressed, data);
-		try {
-			return future.get();
-		} catch (Exception e) {
-			throw new RPCException(e);
+	public byte[] send(String peerId, String command, boolean isCompressed, byte[] data) throws InterruptedException, ExecutionException {
+		if (channel == null || !channel.isActive()) {
+			throw new RPCException("channel is not active");
 		}
+		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
+		RpcFuture future = udpMessageHandler.send(peerId, output);		
+		return future.get();
 	}
 	
 	/**
@@ -160,14 +147,54 @@ public abstract class UdpEndPoint {
 	 * @param payload
 	 * @return
 	 */
-	private RpcFuture sendAsync(String command, boolean isCompressed, byte[] data) {
+//	private RpcFuture sendAsync(String peerId, String command, boolean isCompressed, byte[] data) {
+//		if (channel == null || !channel.isActive()) {
+//			throw new RPCException(" channel is not active");
+//		}
+//		
+//		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
+//		return udpMessageHandler.send(peerId, output);
+//	}
+	/**
+	 * 适用于客户端-->服务器
+	 * 
+	 * @param type
+	 * @param payload
+	 * @return
+	 * @throws ExecutionException 
+	 * @throws InterruptedException 
+	 */
+	public byte[] send(String command, boolean isCompressed, byte[] data) throws InterruptedException, ExecutionException {
+//		RpcFuture future = sendAsync(command, isCompressed, data);
 		if (channel == null || !channel.isActive()) {
 			throw new RPCException(" channel is not active");
 		}
 		
 		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
-		return udpMessageHandler.send(getRemoteSocketAddress(), output);
+		RpcFuture future =  udpMessageHandler.send(getRemoteSocketAddress(), output);
+		return future.get();
+//		try {
+//			return future.get();
+//		} catch (Exception e) {
+//			return null;
+//		}
 	}
+	
+//	/**
+//	 * 异步发送
+//	 * 
+//	 * @param type
+//	 * @param payload
+//	 * @return
+//	 */
+//	private RpcFuture sendAsync(String command, boolean isCompressed, byte[] data) {
+//		if (channel == null || !channel.isActive()) {
+//			throw new RPCException(" channel is not active");
+//		}
+//		
+//		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
+//		return udpMessageHandler.send(getRemoteSocketAddress(), output);
+//	}
 	/**
 	 * 关闭
 	 */

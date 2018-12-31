@@ -35,7 +35,7 @@ public class TimeRequestHandler extends RpcMsgHandler {
 		buf.writeInt(rspData.getBytes().length);// len
 		buf.writeBytes(rspData.getBytes());// data
 		//响应输出
-		logger.info("send fib_res>>>>>" + rspData);
+		logger.info("send time_rsp>>>>>" + rspData);
 		ctx.writeAndFlush(new DatagramPacket(buf, sender));
 	}
 

@@ -33,6 +33,6 @@ public class HeatbeatRequestHandler extends RpcMsgHandler {
 		buf.writeInt(data.length);// len
 		buf.writeBytes(data);// data
 		//响应输出
-		logger.info("send fib_res>>>>>" + reqData);
+		logger.info("send " + reqData + "-->" + sender);
 		ctx.writeAndFlush(new DatagramPacket(buf, sender));	}
 }

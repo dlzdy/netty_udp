@@ -1,6 +1,6 @@
 package com.cscecee.basesite.core.udp.test.client;
 
-import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,7 @@ import com.cscecee.basesite.core.udp.client.UdpClient;
 import com.cscecee.basesite.core.udp.common.Charsets;
 import com.cscecee.basesite.core.udp.common.RPCException;
 import com.cscecee.basesite.core.udp.test.ExpRequest;
-import com.cscecee.basesite.core.udp.test.ExpResponse;
+import com.cscecee.basesite.core.udp.test.server.ExpRequestHandler;
 
 public class TestUdpClient {
 	private final static Logger logger = LoggerFactory.getLogger(TestUdpClient.class);
@@ -19,18 +19,31 @@ public class TestUdpClient {
 
 	public TestUdpClient(UdpClient client) {
 		this.client = client;
-		this.client.register("time", new TimeRequestHandler());
 	}
 
 	public String fib(int n) {
-		byte[] result = client.send("fib", false, (n + "").getBytes());
-		return new String(result, Charsets.UTF8);
+		try {
+			byte[]  result = client.send("fib", false, (n + "").getBytes());
+			return new String(result, Charsets.UTF8);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
-	// ExpResponse
-	public Object exp(int base, int exp) {
-		byte[] result = client.send("exp", false, JSON.toJSONString(new ExpRequest(base, exp)).getBytes());
-		return new String(result, Charsets.UTF8);
+	/**
+	 * json
+	 * @param base
+	 * @param exp
+	 * @return
+	 */
+	public String exp(int base, int exp) {
+		
+		try {
+			byte[] result = client.send("exp", false, JSON.toJSONString(new ExpRequest(base, exp)).getBytes());
+			return new String(result, Charsets.UTF8);
+		} catch (Exception e) {
+			return null;
+		}
 		// return (ExpResponse) client.send("exp", new ExpRequest(base, exp));
 	}
 	// RPC客户端要链接远程IP端口，并注册服务输出类(RPC响应类)，
@@ -39,19 +52,21 @@ public class TestUdpClient {
 		//UdpClient client = new UdpClient("localhost", 8800, 0, UUID.randomUUID().toString().replaceAll("-", ""));
 		UdpClient client = new UdpClient("localhost", 8800, 0, "zdy001");
 		client.bind();
-		client.startHeatbeat();
+		client.register("time", new TimeRequestHandler());
+		client.heatbeat();
+		//client.startHeatbeat();
 		TestUdpClient testClient = new TestUdpClient(client);
 		
 		// System.out.printf("fib(%d) = %s\n", 2, (testClient.fib(2)+""));
-		for (int i = 0; i < 30; i++) {
-			try {
-				System.out.printf("fib(%d) = %s\n", i, (testClient.fib(i) + ""));
-				Thread.sleep(100);
-			} catch (RPCException e) {
-				i--; // retry
-			}
-		}
-		Thread.sleep(3000);
+//		for (int i = 0; i < 30; i++) {
+//			try {
+//				System.out.printf("fib(%d) = %s\n", i, (testClient.fib(i) + ""));
+//				Thread.sleep(100);
+//			} catch (RPCException e) {
+//				i--; // retry
+//			}
+//		}
+//		Thread.sleep(3000);
 
 //		String strJsonObj = testClient.exp(2, 2) + "";
 //		ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);

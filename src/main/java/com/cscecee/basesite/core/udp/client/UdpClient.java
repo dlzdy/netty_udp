@@ -2,18 +2,13 @@ package com.cscecee.basesite.core.udp.client;
 
 import java.net.InetSocketAddress;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.cscecee.basesite.core.udp.common.RpcMsgReq;
 import com.cscecee.basesite.core.udp.common.Charsets;
-import com.cscecee.basesite.core.udp.common.RPCException;
-import com.cscecee.basesite.core.udp.common.RequestId;
-import com.cscecee.basesite.core.udp.common.RpcFuture;
 import com.cscecee.basesite.core.udp.common.UdpEndPoint;
 
 import io.netty.channel.ChannelFuture;
@@ -28,7 +23,7 @@ public class UdpClient extends UdpEndPoint {
 	protected Thread heatbeatThread = null;
 
 	private int localPort;
-	// 与服务连接状态
+	// 与服务器连接状态
 	private boolean isConnected = false;
 	
 	public UdpClient(String serverName, int serverPort, int localPort, String myId) throws Exception {
@@ -63,11 +58,13 @@ public class UdpClient extends UdpEndPoint {
 	 * @return
 	 */
 	public String heatbeat() {
-		byte[] result = send("heatbeat", false, ("hello").getBytes());
-		if (result == null) {
+		try {
+			byte[] result = send("heatbeat", false, ("hello").getBytes());
+			return new String(result, Charsets.UTF8);
+		} catch (Exception e) {
 			return null;
 		}
-		return new String(result, Charsets.UTF8);
+
 	}
 	/**
 	 * 启用心跳线程

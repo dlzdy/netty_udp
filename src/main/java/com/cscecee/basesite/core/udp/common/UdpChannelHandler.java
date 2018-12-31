@@ -103,7 +103,6 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 					RpcFuture future = (RpcFuture) pendingTasks.remove(messageInput.getRequestId());
 					if (future == null) {
 						logger.error("future not found with command {}", messageInput.getCommand());
-						future.fail(NotFoundCommand);
 						return;
 					}
 					future.success(messageInput.getData());					
@@ -160,9 +159,9 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 	 * @return
 	 */
 	public RpcFuture send(String peerId, RpcMsgReq msgReq) {
-		Map<String, String> peerMap = peersMap.get(peerId);
 		RpcFuture future = new RpcFuture();
-		if (peerMap == null || peerMap.size() == 0) {
+		Map<String, String> peerMap = peersMap.get(peerId);
+		if (peerMap == null || peerMap.isEmpty()) {
 			future.fail(ConnectionClosed);
 			return future;
 		}
@@ -198,7 +197,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 			getChannel().eventLoop().execute(() -> {
 				pendingTasks.put(msgReq.getRequestId(), future);
 				// datasocket
-				logger.debug("send reqId >>>>>" + msgReq.getRequestId());
+				logger.info("send " + msgReq.getCommand() +  " >>>>>  " + remoteSocketAddress);
 				getChannel().writeAndFlush(new DatagramPacket(buf, remoteSocketAddress));
 				
 			});

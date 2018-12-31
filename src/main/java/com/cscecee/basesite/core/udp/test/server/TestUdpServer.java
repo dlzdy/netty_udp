@@ -1,5 +1,8 @@
 package com.cscecee.basesite.core.udp.test.server;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+
 import com.cscecee.basesite.core.udp.common.Charsets;
 import com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler;
 import com.cscecee.basesite.core.udp.server.UdpServer;
@@ -12,9 +15,14 @@ public class TestUdpServer {
 	public TestUdpServer(UdpServer server ) {
 		this.server = server;
 	}
-	public Object time() {
-		byte[] result  = server.send("time", "".getBytes());
-		return  new String(result, Charsets.UTF8);
+	public String time(String clientId) {
+		try {
+			byte[] result = server.send(clientId, "time", false, "".getBytes());
+			return  new String(result, Charsets.UTF8);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return  null;
+		}
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -24,6 +32,13 @@ public class TestUdpServer {
 		server.register("heatbeat", new HeatbeatRequestHandler());
 		TestUdpServer testServer = new TestUdpServer(server);
 		server.bind();
-		//testServer.time();
+		while(true) {
+			try {
+				TimeUnit.SECONDS.sleep(60);
+				System.out.println("get time from client " + testServer.time("zdy001"));
+			} catch (Exception e) {
+//				e.printStackTrace();
+			}
+		}
 	}
 }
