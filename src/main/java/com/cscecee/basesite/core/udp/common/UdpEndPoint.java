@@ -1,5 +1,6 @@
 package com.cscecee.basesite.core.udp.common;
 
+import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -27,6 +28,8 @@ public abstract class UdpEndPoint {
 	//
 	protected Channel channel;
 
+	protected InetSocketAddress remoteSocketAddress = null;
+
 	protected UdpChannelHandler udpMessageHandler;
 	
 	protected Throwable ConnectionClosed = new Exception("rpc connection not active error");
@@ -42,6 +45,9 @@ public abstract class UdpEndPoint {
 		return handlers;
 	}
 
+	public InetSocketAddress getRemoteSocketAddress() {
+		return remoteSocketAddress;
+	}
 	/*
 	 * 注册服务的快捷方式
 	 */
@@ -131,7 +137,37 @@ public abstract class UdpEndPoint {
 //		}
 //	}
 
-
+	/**
+	 * 适用于客户端-->服务器
+	 * 
+	 * @param type
+	 * @param payload
+	 * @return
+	 */
+	public byte[] send(String command, boolean isCompressed, byte[] data) {
+		RpcFuture future = sendAsync(command, isCompressed, data);
+		try {
+			return future.get();
+		} catch (Exception e) {
+			throw new RPCException(e);
+		}
+	}
+	
+	/**
+	 * 异步发送
+	 * 
+	 * @param type
+	 * @param payload
+	 * @return
+	 */
+	private RpcFuture sendAsync(String command, boolean isCompressed, byte[] data) {
+		if (channel == null || !channel.isActive()) {
+			throw new RPCException(" channel is not active");
+		}
+		
+		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
+		return udpMessageHandler.send(getRemoteSocketAddress(), output);
+	}
 	/**
 	 * 关闭
 	 */

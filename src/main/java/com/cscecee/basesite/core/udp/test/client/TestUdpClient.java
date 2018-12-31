@@ -36,7 +36,8 @@ public class TestUdpClient {
 	// RPC客户端要链接远程IP端口，并注册服务输出类(RPC响应类)，
 	// 然后分别调用20次斐波那契服务和指数服务，输出结果
 	public static void main(String[] args) throws Exception {
-		UdpClient client = new UdpClient("localhost", 8800, 0, UUID.randomUUID().toString().replaceAll("-", ""));
+		//UdpClient client = new UdpClient("localhost", 8800, 0, UUID.randomUUID().toString().replaceAll("-", ""));
+		UdpClient client = new UdpClient("localhost", 8800, 0, "zdy001");
 		client.bind();
 		client.startHeatbeat();
 		TestUdpClient testClient = new TestUdpClient(client);
