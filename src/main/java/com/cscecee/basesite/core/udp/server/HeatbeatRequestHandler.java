@@ -23,7 +23,7 @@ public class HeatbeatRequestHandler extends RpcMsgHandler {
 
 	@Override
 	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, String requestId, byte[] data) {
-		String reqData = new String(data);
+		String rspData = new String(data);
 		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
 		writeStr(buf, requestId);// len+ reqId
 		buf.writeBoolean(true);//isRsp=true
@@ -33,6 +33,6 @@ public class HeatbeatRequestHandler extends RpcMsgHandler {
 		buf.writeInt(data.length);// len
 		buf.writeBytes(data);// data
 		//响应输出
-		logger.info("send " + reqData + "-->" + sender);
+		logger.info("send rsp " + rspData + "-->" + sender);
 		ctx.writeAndFlush(new DatagramPacket(buf, sender));	}
 }

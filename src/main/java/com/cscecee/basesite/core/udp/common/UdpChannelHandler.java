@@ -42,7 +42,6 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 	private ConcurrentMap<String, RpcFuture> pendingTasks = new ConcurrentHashMap<>();
 
 	private Throwable ConnectionClosed = new Exception("rpc connection not active error");
-	private Throwable NotFoundCommand = new Exception("not found command");
 	
 	public UdpChannelHandler(UdpEndPoint udpEndPoint, int workerThreads) {
 		// 业务队列最大1000,避免堆积
@@ -192,12 +191,11 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		buf.writeBoolean(msgReq.getIsCompressed());// isCompressed
 		buf.writeInt(msgReq.getData().length);
 		buf.writeBytes(msgReq.getData());//data
-		//ctx.writeAndFlush(new DatagramPacket(buf, sender));
 		if (getChannel() != null) {
 			getChannel().eventLoop().execute(() -> {
 				pendingTasks.put(msgReq.getRequestId(), future);
 				// datasocket
-				logger.info("send " + msgReq.getCommand() +  " >>>>>  " + remoteSocketAddress);
+				logger.info("send req " + msgReq.getCommand() +  " >>>>>  " + remoteSocketAddress);
 				getChannel().writeAndFlush(new DatagramPacket(buf, remoteSocketAddress));
 				
 			});

@@ -10,6 +10,7 @@ import com.cscecee.basesite.core.udp.client.UdpClient;
 import com.cscecee.basesite.core.udp.common.Charsets;
 import com.cscecee.basesite.core.udp.common.RPCException;
 import com.cscecee.basesite.core.udp.test.ExpRequest;
+import com.cscecee.basesite.core.udp.test.ExpResponse;
 import com.cscecee.basesite.core.udp.test.server.ExpRequestHandler;
 
 public class TestUdpClient {
@@ -53,40 +54,40 @@ public class TestUdpClient {
 		UdpClient client = new UdpClient("localhost", 8800, 0, "zdy001");
 		client.bind();
 		client.register("time", new TimeRequestHandler());
-		client.heatbeat();
-		//client.startHeatbeat();
+		//client.heatbeat();
+		client.startHeatbeat();
 		TestUdpClient testClient = new TestUdpClient(client);
 		
 		// System.out.printf("fib(%d) = %s\n", 2, (testClient.fib(2)+""));
-//		for (int i = 0; i < 30; i++) {
-//			try {
-//				System.out.printf("fib(%d) = %s\n", i, (testClient.fib(i) + ""));
-//				Thread.sleep(100);
-//			} catch (RPCException e) {
-//				i--; // retry
-//			}
-//		}
-//		Thread.sleep(3000);
+		for (int i = 0; i < 30; i++) {
+			try {
+				System.out.printf("fib(%d) = %s\n", i, (testClient.fib(i) + ""));
+				Thread.sleep(100);
+			} catch (RPCException e) {
+				i--; // retry
+			}
+		}
+		Thread.sleep(3000);
 
 //		String strJsonObj = testClient.exp(2, 2) + "";
 //		ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
 //		System.out.printf("exp2(%d) = %d cost=%dns\n", 2, expResp.getValue(), expResp.getCostInNanos());
 
 		
-//		for (int i = 0; i < 30; i++) {
-//			try {
-//				String strJsonObj = testClient.exp(2, i) + "";
-//				ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
-//				if (expResp != null) {
-//					System.out.printf("exp2(%d) = %d cost=%dns\n", i, expResp.getValue(), expResp.getCostInNanos());
-//				} else {
-//					System.err.println("null");
-//				}
-//				Thread.sleep(100);
-//			} catch (RPCException e) {
-//				i--; // retry
-//			}
-//		}
+		for (int i = 0; i < 30; i++) {
+			try {
+				String strJsonObj = testClient.exp(2, i) + "";
+				ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
+				if (expResp != null) {
+					System.out.printf("exp2(%d) = %d cost=%dns\n", i, expResp.getValue(), expResp.getCostInNanos());
+				} else {
+					System.err.println("null");
+				}
+				Thread.sleep(100);
+			} catch (RPCException e) {
+				i--; // retry
+			}
+		}
 		//client.close();
 	}
 }

@@ -37,7 +37,7 @@ public class TestUdpServer {
 				TimeUnit.SECONDS.sleep(60);
 				System.out.println("get time from client " + testServer.time("zdy001"));
 			} catch (Exception e) {
-//				e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
 	}
