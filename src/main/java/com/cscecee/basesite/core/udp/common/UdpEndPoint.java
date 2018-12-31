@@ -31,9 +31,7 @@ public abstract class UdpEndPoint {
 	
 	protected InetSocketAddress remoteSocketAddress = null;
 
-	protected UdpChannelHandler udpMessageHandler;
-	
-	protected Throwable ConnectionClosed = new Exception("rpc connection not active error");
+	protected UdpChannelHandler udpChannelHandler;
 	
 	protected RpcMsgUtils handlers = new RpcMsgUtils();
 
@@ -65,7 +63,7 @@ public abstract class UdpEndPoint {
 		bootstrap.channel(NioDatagramChannel.class);
 		// 3.配置TCP/UDP参数。
 		// 4.配置handler和childHandler，数据处理器。
-		udpMessageHandler =  new UdpChannelHandler(this,10);
+		udpChannelHandler =  new UdpChannelHandler(this,10);
 		
 		// bootstrap.handler(new LoggingHandler(LogLevel.INFO));
 		bootstrap.handler(new ChannelInitializer<NioDatagramChannel>() {
@@ -75,7 +73,7 @@ public abstract class UdpEndPoint {
 				// 注册hander
 				ChannelPipeline pipe = ch.pipeline();
 				// 将业务处理器放到最后
-			    pipe.addLast(udpMessageHandler);
+			    pipe.addLast(udpChannelHandler);
 			}
 
 		});
@@ -136,7 +134,7 @@ public abstract class UdpEndPoint {
 			throw new RPCException("channel is not active");
 		}
 		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
-		RpcFuture future = udpMessageHandler.send(peerId, output);		
+		RpcFuture future = udpChannelHandler.send(peerId, output);		
 		return future.get();
 	}
 	
@@ -171,7 +169,7 @@ public abstract class UdpEndPoint {
 		}
 		
 		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
-		RpcFuture future =  udpMessageHandler.send(getRemoteSocketAddress(), output);
+		RpcFuture future =  udpChannelHandler.send(getRemoteSocketAddress(), output);
 		return future.get();
 //		try {
 //			return future.get();
