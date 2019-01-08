@@ -136,7 +136,7 @@ public abstract class UdpEndPoint {
 		if (channel == null || !channel.isActive()) {
 			throw new RPCException("channel is not active");
 		}
-		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
+		RpcMsg output = new RpcMsg(RequestId.next(), false, myId, command, isCompressed, data);
 		RpcFuture future = udpChannelHandler.send(peerId, output);		
 		return future.get();
 	}
@@ -173,7 +173,7 @@ public abstract class UdpEndPoint {
 		if (isCompressed) {//发送进行压缩
 			data = GzipUtils.gzip(data);
 		}
-		RpcMsgReq output = new RpcMsgReq(RequestId.next(), myId, command, isCompressed, data);
+		RpcMsg output = new RpcMsg(RequestId.next(), false, myId, command, isCompressed, data);
 		RpcFuture future =  udpChannelHandler.send(getRemoteSocketAddress(), output);
 		return future.get();
 //		try {

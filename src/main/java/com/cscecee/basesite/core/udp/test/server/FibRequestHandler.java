@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.cscecee.basesite.core.udp.common.Charsets;
+import com.cscecee.basesite.core.udp.common.RpcMsg;
 import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 
 import io.netty.buffer.ByteBuf;
@@ -36,18 +37,19 @@ public class FibRequestHandler extends RpcMsgHandler {
 			fibs.add(value);
 		}
 		
-		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
-		writeStr(buf, requestId);// len+ reqId
-		buf.writeBoolean(true);//isRsp=true
-		writeStr(buf, "0" );//len+fromId
-		writeStr(buf, "fib_rsp");//****
-		buf.writeBoolean(false);//isCompressed
+//		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
+//		writeStr(buf, requestId);// len+ reqId
+//		buf.writeBoolean(true);//isRsp=true
+//		writeStr(buf, "0" );//len+fromId
+//		writeStr(buf, "fib_rsp");//****
+//		buf.writeBoolean(false);//isCompressed
 		byte[] outData = (fibs.get(n) + "").getBytes(Charsets.UTF8);
-		buf.writeInt(outData.length);// len
-		buf.writeBytes(outData);// data
+//		buf.writeInt(outData.length);// len
+//		buf.writeBytes(outData);// data
 		//响应输出
+		RpcMsg rpcMsg = new RpcMsg(requestId, true, "0", "fib_rsp", false, outData);
 		logger.info("send fib_res>>>>>" + fibs.get(n));
-		ctx.writeAndFlush(new DatagramPacket(buf, sender));
+		ctx.writeAndFlush(new DatagramPacket(rpcMsg.toByteBuf(), sender));
 	}
 
 }

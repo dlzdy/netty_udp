@@ -1,0 +1,713 @@
+2018-12-30 18:17:31,044 [main] [com.cscecee.basesite.core.udp.server.UdpServer] [INFO] - server is start up, bind port = 8800
+2018-12-30 18:17:45,388 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:60718
+2018-12-30 18:17:45,655 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpMessageHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:17:45,819 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":4}
+2018-12-30 18:17:45,829 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpMessageHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:18:16,565 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:60719
+2018-12-30 18:18:16,750 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":0,"value":1}
+2018-12-30 18:18:16,764 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpMessageHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:18:16,905 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":2}
+2018-12-30 18:18:17,012 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":4}
+2018-12-30 18:18:17,119 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2280,"value":8}
+2018-12-30 18:18:17,230 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":16}
+2018-12-30 18:18:17,337 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":32}
+2018-12-30 18:18:17,445 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":64}
+2018-12-30 18:18:17,553 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":128}
+2018-12-30 18:18:17,663 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":256}
+2018-12-30 18:18:17,772 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":512}
+2018-12-30 18:18:17,881 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2850,"value":1024}
+2018-12-30 18:18:17,989 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":2048}
+2018-12-30 18:18:18,093 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":4096}
+2018-12-30 18:18:18,199 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":8192}
+2018-12-30 18:18:18,322 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":16384}
+2018-12-30 18:18:18,425 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":32768}
+2018-12-30 18:18:18,539 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2280,"value":65536}
+2018-12-30 18:18:18,652 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2850,"value":131072}
+2018-12-30 18:18:18,760 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":262144}
+2018-12-30 18:18:18,866 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":524288}
+2018-12-30 18:18:18,971 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":1048576}
+2018-12-30 18:18:19,080 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":2097152}
+2018-12-30 18:18:19,183 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":4194304}
+2018-12-30 18:18:19,287 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":8388608}
+2018-12-30 18:18:19,392 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":16777216}
+2018-12-30 18:18:19,507 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":33554432}
+2018-12-30 18:18:19,616 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":67108864}
+2018-12-30 18:18:19,724 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":134217728}
+2018-12-30 18:18:19,830 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3991,"value":268435456}
+2018-12-30 18:18:19,936 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3991,"value":536870912}
+2018-12-30 18:19:08,951 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:59552
+2018-12-30 18:19:08,988 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:19:08,998 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpMessageHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:19:09,108 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:19:09,214 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2
+2018-12-30 18:19:09,319 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>3
+2018-12-30 18:19:09,426 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>5
+2018-12-30 18:19:09,531 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>8
+2018-12-30 18:19:09,639 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>13
+2018-12-30 18:19:09,745 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>21
+2018-12-30 18:19:09,854 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>34
+2018-12-30 18:19:09,965 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>55
+2018-12-30 18:19:10,072 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>89
+2018-12-30 18:19:10,179 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>144
+2018-12-30 18:19:10,292 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>233
+2018-12-30 18:19:10,398 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>377
+2018-12-30 18:19:10,503 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>610
+2018-12-30 18:19:10,609 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>987
+2018-12-30 18:19:10,716 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1597
+2018-12-30 18:19:10,822 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2584
+2018-12-30 18:19:10,927 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>4181
+2018-12-30 18:19:11,034 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>6765
+2018-12-30 18:19:11,141 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>10946
+2018-12-30 18:19:11,246 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>17711
+2018-12-30 18:19:11,355 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>28657
+2018-12-30 18:19:11,463 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>46368
+2018-12-30 18:19:11,571 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>75025
+2018-12-30 18:19:11,680 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>121393
+2018-12-30 18:19:11,787 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>196418
+2018-12-30 18:19:11,896 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>317811
+2018-12-30 18:19:12,004 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>514229
+2018-12-30 18:19:12,110 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>832040
+2018-12-30 18:19:15,369 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":1}
+2018-12-30 18:19:15,496 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":2}
+2018-12-30 18:19:15,604 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":4}
+2018-12-30 18:19:15,716 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":8}
+2018-12-30 18:19:15,823 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":16}
+2018-12-30 18:19:15,930 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":32}
+2018-12-30 18:19:16,040 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":64}
+2018-12-30 18:19:16,144 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":128}
+2018-12-30 18:19:16,250 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":256}
+2018-12-30 18:19:16,355 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":512}
+2018-12-30 18:19:16,458 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":571,"value":1024}
+2018-12-30 18:19:16,564 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":2048}
+2018-12-30 18:19:16,671 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2280,"value":4096}
+2018-12-30 18:19:16,778 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":8192}
+2018-12-30 18:19:16,887 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":16384}
+2018-12-30 18:19:16,995 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":32768}
+2018-12-30 18:19:17,103 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":65536}
+2018-12-30 18:19:17,209 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2280,"value":131072}
+2018-12-30 18:19:17,316 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3991,"value":262144}
+2018-12-30 18:19:17,423 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":524288}
+2018-12-30 18:19:17,531 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":1048576}
+2018-12-30 18:19:17,639 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":2097152}
+2018-12-30 18:19:17,745 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":4194304}
+2018-12-30 18:19:17,851 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":8388608}
+2018-12-30 18:19:17,956 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":16777216}
+2018-12-30 18:19:18,065 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":33554432}
+2018-12-30 18:19:18,170 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":67108864}
+2018-12-30 18:19:18,276 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":134217728}
+2018-12-30 18:19:18,382 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":268435456}
+2018-12-30 18:19:18,489 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":536870912}
+2018-12-30 18:26:30,595 [main] [com.cscecee.basesite.core.udp.server.UdpServer] [INFO] - server is start up, bind port = 8800
+2018-12-30 18:26:36,381 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:58628
+2018-12-30 18:26:36,457 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpMessageHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:26:36,462 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:26:36,474 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpMessageHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:26:36,585 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:26:36,694 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2
+2018-12-30 18:26:36,800 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>3
+2018-12-30 18:26:36,908 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>5
+2018-12-30 18:26:37,015 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>8
+2018-12-30 18:26:37,122 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>13
+2018-12-30 18:26:37,228 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>21
+2018-12-30 18:26:37,334 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>34
+2018-12-30 18:26:37,440 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>55
+2018-12-30 18:26:37,548 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>89
+2018-12-30 18:26:37,656 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>144
+2018-12-30 18:26:37,763 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>233
+2018-12-30 18:26:37,869 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>377
+2018-12-30 18:26:37,977 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>610
+2018-12-30 18:26:38,084 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>987
+2018-12-30 18:26:38,196 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1597
+2018-12-30 18:26:38,301 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2584
+2018-12-30 18:26:38,410 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>4181
+2018-12-30 18:26:38,518 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>6765
+2018-12-30 18:26:38,629 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>10946
+2018-12-30 18:26:38,737 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>17711
+2018-12-30 18:26:38,844 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>28657
+2018-12-30 18:26:38,951 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>46368
+2018-12-30 18:26:39,055 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>75025
+2018-12-30 18:26:39,161 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>121393
+2018-12-30 18:26:39,271 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>196418
+2018-12-30 18:26:39,380 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>317811
+2018-12-30 18:26:39,485 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>514229
+2018-12-30 18:26:39,590 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>832040
+2018-12-30 18:26:43,038 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":1}
+2018-12-30 18:26:43,167 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":2}
+2018-12-30 18:26:43,276 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":4}
+2018-12-30 18:26:43,383 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":8}
+2018-12-30 18:26:43,487 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":16}
+2018-12-30 18:26:43,593 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":32}
+2018-12-30 18:26:43,698 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":64}
+2018-12-30 18:26:43,803 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":128}
+2018-12-30 18:26:43,909 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":256}
+2018-12-30 18:26:44,020 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":512}
+2018-12-30 18:26:44,134 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":1024}
+2018-12-30 18:26:44,242 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":2048}
+2018-12-30 18:26:44,351 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":4096}
+2018-12-30 18:26:44,461 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":8192}
+2018-12-30 18:26:44,563 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":16384}
+2018-12-30 18:26:44,668 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":32768}
+2018-12-30 18:26:44,776 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":65536}
+2018-12-30 18:26:44,880 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":131072}
+2018-12-30 18:26:44,988 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2280,"value":262144}
+2018-12-30 18:26:45,094 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":524288}
+2018-12-30 18:26:45,199 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":1048576}
+2018-12-30 18:26:45,302 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":2097152}
+2018-12-30 18:26:45,408 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":4194304}
+2018-12-30 18:26:45,511 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2280,"value":8388608}
+2018-12-30 18:26:45,616 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":16777216}
+2018-12-30 18:26:45,722 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3422,"value":33554432}
+2018-12-30 18:26:45,830 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":67108864}
+2018-12-30 18:26:45,951 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":134217728}
+2018-12-30 18:26:46,058 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":4561,"value":268435456}
+2018-12-30 18:26:46,165 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":536870912}
+2018-12-30 18:34:42,353 [main] [com.cscecee.basesite.core.udp.server.UdpServer] [INFO] - server is start up, bind port = 8800
+2018-12-30 18:34:44,260 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:60458
+2018-12-30 18:34:44,341 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:34:44,347 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:34:44,361 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:34:44,470 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:34:44,574 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2
+2018-12-30 18:34:44,676 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>3
+2018-12-30 18:34:44,779 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>5
+2018-12-30 18:34:44,882 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>8
+2018-12-30 18:34:44,984 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>13
+2018-12-30 18:34:45,087 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>21
+2018-12-30 18:34:45,194 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>34
+2018-12-30 18:34:45,304 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>55
+2018-12-30 18:34:45,411 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>89
+2018-12-30 18:34:45,518 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>144
+2018-12-30 18:34:45,622 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>233
+2018-12-30 18:34:45,726 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>377
+2018-12-30 18:34:45,842 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>610
+2018-12-30 18:34:45,951 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>987
+2018-12-30 18:34:46,066 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1597
+2018-12-30 18:34:46,172 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2584
+2018-12-30 18:34:46,280 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>4181
+2018-12-30 18:34:46,387 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>6765
+2018-12-30 18:34:46,496 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>10946
+2018-12-30 18:34:46,603 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>17711
+2018-12-30 18:34:46,711 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>28657
+2018-12-30 18:34:46,820 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>46368
+2018-12-30 18:34:46,929 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>75025
+2018-12-30 18:34:47,040 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>121393
+2018-12-30 18:34:47,152 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>196418
+2018-12-30 18:34:47,260 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>317811
+2018-12-30 18:34:47,368 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>514229
+2018-12-30 18:34:47,475 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>832040
+2018-12-30 18:34:50,931 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":1}
+2018-12-30 18:34:51,062 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":2}
+2018-12-30 18:34:51,170 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":4}
+2018-12-30 18:34:51,278 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2280,"value":8}
+2018-12-30 18:34:51,387 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":16}
+2018-12-30 18:34:51,496 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":32}
+2018-12-30 18:34:51,604 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":64}
+2018-12-30 18:34:51,712 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":128}
+2018-12-30 18:34:51,820 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":256}
+2018-12-30 18:34:51,931 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":512}
+2018-12-30 18:34:52,042 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":1024}
+2018-12-30 18:34:52,152 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":2048}
+2018-12-30 18:34:52,258 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":4096}
+2018-12-30 18:34:52,368 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":8192}
+2018-12-30 18:34:52,501 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":16384}
+2018-12-30 18:34:52,606 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":32768}
+2018-12-30 18:34:52,715 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":65536}
+2018-12-30 18:34:52,823 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":131072}
+2018-12-30 18:34:52,931 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1711,"value":262144}
+2018-12-30 18:34:53,036 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":524288}
+2018-12-30 18:34:53,139 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":1048576}
+2018-12-30 18:34:53,245 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":2097152}
+2018-12-30 18:34:53,353 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":4194304}
+2018-12-30 18:34:53,460 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":8388608}
+2018-12-30 18:34:53,566 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":16777216}
+2018-12-30 18:34:53,674 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":33554432}
+2018-12-30 18:34:53,780 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":67108864}
+2018-12-30 18:34:53,887 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":134217728}
+2018-12-30 18:34:53,991 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":268435456}
+2018-12-30 18:34:54,097 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3991,"value":536870912}
+2018-12-30 18:37:18,362 [main] [com.cscecee.basesite.core.udp.server.UdpServer] [INFO] - server is start up, bind port = 8800
+2018-12-30 18:37:24,515 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:49522
+2018-12-30 18:37:24,591 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:37:24,596 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:37:24,607 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:37:24,716 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 18:37:24,820 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2
+2018-12-30 18:37:24,927 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>3
+2018-12-30 18:37:25,035 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>5
+2018-12-30 18:37:25,141 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>8
+2018-12-30 18:37:25,303 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>13
+2018-12-30 18:37:25,411 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>21
+2018-12-30 18:37:25,519 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>34
+2018-12-30 18:37:25,627 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>55
+2018-12-30 18:37:25,733 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>89
+2018-12-30 18:37:25,841 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>144
+2018-12-30 18:37:25,949 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>233
+2018-12-30 18:37:26,064 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>377
+2018-12-30 18:37:26,170 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>610
+2018-12-30 18:37:26,274 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>987
+2018-12-30 18:37:26,381 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1597
+2018-12-30 18:37:26,487 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2584
+2018-12-30 18:37:26,593 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>4181
+2018-12-30 18:37:26,715 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>6765
+2018-12-30 18:37:26,825 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>10946
+2018-12-30 18:37:26,934 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>17711
+2018-12-30 18:39:29,081 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:63695
+2018-12-30 18:39:29,143 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 18:41:06,317 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:62353
+2018-12-30 18:41:06,387 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:23:30,720 [main] [com.cscecee.basesite.core.udp.server.UdpServer] [INFO] - server is start up, bind port = 8800
+2018-12-30 19:23:35,001 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:60916
+2018-12-30 19:23:35,075 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:23:35,080 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 19:23:35,080 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:23:35,205 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 19:23:35,306 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2
+2018-12-30 19:23:35,414 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>3
+2018-12-30 19:23:35,520 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>5
+2018-12-30 19:23:35,631 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>8
+2018-12-30 19:23:35,740 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>13
+2018-12-30 19:23:35,841 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>21
+2018-12-30 19:23:35,954 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>34
+2018-12-30 19:23:36,066 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>55
+2018-12-30 19:23:36,177 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>89
+2018-12-30 19:23:36,289 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>144
+2018-12-30 19:23:36,406 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>233
+2018-12-30 19:23:36,508 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>377
+2018-12-30 19:23:36,620 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>610
+2018-12-30 19:23:36,727 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>987
+2018-12-30 19:23:36,845 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1597
+2018-12-30 19:23:36,950 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2584
+2018-12-30 19:23:37,062 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>4181
+2018-12-30 19:23:37,171 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>6765
+2018-12-30 19:23:37,280 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>10946
+2018-12-30 19:23:37,385 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>17711
+2018-12-30 19:23:37,488 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>28657
+2018-12-30 19:23:37,607 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>46368
+2018-12-30 19:23:37,713 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>75025
+2018-12-30 19:23:37,820 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>121393
+2018-12-30 19:23:37,921 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>196418
+2018-12-30 19:23:38,050 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>317811
+2018-12-30 19:23:38,174 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>514229
+2018-12-30 19:23:38,283 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>832040
+2018-12-30 19:23:41,716 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":1}
+2018-12-30 19:23:41,843 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":2}
+2018-12-30 19:23:41,955 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":4}
+2018-12-30 19:23:42,059 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":8}
+2018-12-30 19:23:42,165 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":16}
+2018-12-30 19:23:42,272 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":32}
+2018-12-30 19:23:42,382 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":64}
+2018-12-30 19:23:42,495 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":128}
+2018-12-30 19:23:42,605 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":256}
+2018-12-30 19:23:42,707 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":512}
+2018-12-30 19:23:42,820 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":570,"value":1024}
+2018-12-30 19:23:42,937 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":2048}
+2018-12-30 19:23:43,044 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":4096}
+2018-12-30 19:23:43,158 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":8192}
+2018-12-30 19:23:43,275 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":16384}
+2018-12-30 19:23:43,385 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2850,"value":32768}
+2018-12-30 19:23:43,505 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1710,"value":65536}
+2018-12-30 19:23:43,626 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":131072}
+2018-12-30 19:23:43,733 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":262144}
+2018-12-30 19:23:43,852 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":524288}
+2018-12-30 19:23:43,973 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":3421,"value":1048576}
+2018-12-30 19:23:44,075 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":2097152}
+2018-12-30 19:23:44,179 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2281,"value":4194304}
+2018-12-30 19:23:44,287 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":2851,"value":8388608}
+2018-12-30 19:23:44,402 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":16777216}
+2018-12-30 19:23:44,506 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":33554432}
+2018-12-30 19:23:44,616 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":67108864}
+2018-12-30 19:23:44,731 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":134217728}
+2018-12-30 19:23:44,853 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1140,"value":268435456}
+2018-12-30 19:23:44,968 [rpc-0] [com.cscecee.basesite.core.udp.test.server.ExpRequestHandler] [INFO] - send exp_res>>>>>{"costInNanos":1141,"value":536870912}
+2018-12-30 19:25:36,566 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:61711
+2018-12-30 19:26:14,525 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:50486
+2018-12-30 19:26:14,575 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 19:26:14,583 [rpc-0] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-1
+2018-12-30 19:26:14,583 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:26:14,711 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 19:26:14,814 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2
+2018-12-30 19:26:14,925 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>3
+2018-12-30 19:26:15,048 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>5
+2018-12-30 19:26:15,163 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>8
+2018-12-30 19:26:15,264 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>13
+2018-12-30 19:26:15,373 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>21
+2018-12-30 19:26:15,475 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>34
+2018-12-30 19:26:15,578 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>55
+2018-12-30 19:26:15,688 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>89
+2018-12-30 19:26:15,943 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>144
+2018-12-30 19:26:16,051 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>233
+2018-12-30 19:26:16,201 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>377
+2018-12-30 19:26:16,311 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>610
+2018-12-30 19:26:16,420 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>987
+2018-12-30 19:26:16,525 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1597
+2018-12-30 19:26:16,642 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2584
+2018-12-30 19:26:16,761 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>4181
+2018-12-30 19:26:16,870 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>6765
+2018-12-30 19:26:16,982 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>10946
+2018-12-30 19:26:17,102 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>17711
+2018-12-30 19:26:17,216 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>28657
+2018-12-30 19:26:17,326 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>46368
+2018-12-30 19:26:17,441 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>75025
+2018-12-30 19:26:17,549 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>121393
+2018-12-30 19:26:17,650 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>196418
+2018-12-30 19:26:17,753 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>317811
+2018-12-30 19:26:17,865 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>514229
+2018-12-30 19:26:17,980 [rpc-1] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>832040
+2018-12-30 19:26:24,583 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [ERROR] - heatbeat return error
+java.lang.NullPointerException
+	at java.lang.String.<init>(Unknown Source)
+	at com.cscecee.basesite.core.udp.client.UdpClient.heatbeat(UdpClient.java:104)
+	at com.cscecee.basesite.core.udp.client.UdpClient$1.run(UdpClient.java:119)
+2018-12-30 19:26:41,602 [rpc-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-2
+2018-12-30 19:26:51,609 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [ERROR] - heatbeat return error
+java.lang.NullPointerException
+	at java.lang.String.<init>(Unknown Source)
+	at com.cscecee.basesite.core.udp.client.UdpClient.heatbeat(UdpClient.java:104)
+	at com.cscecee.basesite.core.udp.client.UdpClient$1.run(UdpClient.java:119)
+2018-12-30 19:27:05,611 [rpc-2] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-3
+2018-12-30 19:27:15,623 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [ERROR] - heatbeat return error
+java.lang.NullPointerException
+	at java.lang.String.<init>(Unknown Source)
+	at com.cscecee.basesite.core.udp.client.UdpClient.heatbeat(UdpClient.java:104)
+	at com.cscecee.basesite.core.udp.client.UdpClient$1.run(UdpClient.java:119)
+2018-12-30 19:31:23,772 [main] [com.cscecee.basesite.core.udp.server.UdpServer] [INFO] - server is start up, bind port = 8800
+2018-12-30 19:31:28,813 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:64490
+2018-12-30 19:31:28,897 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:31:28,914 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 19:31:28,914 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:31:29,046 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1
+2018-12-30 19:31:29,148 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2
+2018-12-30 19:31:29,250 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>3
+2018-12-30 19:31:29,352 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>5
+2018-12-30 19:31:29,469 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>8
+2018-12-30 19:31:29,571 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>13
+2018-12-30 19:31:29,674 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>21
+2018-12-30 19:31:29,777 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>34
+2018-12-30 19:31:29,884 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>55
+2018-12-30 19:31:29,990 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>89
+2018-12-30 19:31:30,103 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>144
+2018-12-30 19:31:30,218 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>233
+2018-12-30 19:31:30,319 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>377
+2018-12-30 19:31:30,425 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>610
+2018-12-30 19:31:30,536 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>987
+2018-12-30 19:31:30,639 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>1597
+2018-12-30 19:31:30,743 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>2584
+2018-12-30 19:31:30,846 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>4181
+2018-12-30 19:31:30,963 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>6765
+2018-12-30 19:31:31,071 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>10946
+2018-12-30 19:31:31,174 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>17711
+2018-12-30 19:31:31,277 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>28657
+2018-12-30 19:31:31,380 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>46368
+2018-12-30 19:31:31,484 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>75025
+2018-12-30 19:31:31,588 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>121393
+2018-12-30 19:31:31,699 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>196418
+2018-12-30 19:31:31,812 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>317811
+2018-12-30 19:31:31,916 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>514229
+2018-12-30 19:31:32,017 [rpc-0] [com.cscecee.basesite.core.udp.test.server.FibRequestHandler] [INFO] - send fib_res>>>>>832040
+2018-12-30 19:31:46,484 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:31:50,273 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:32:33,973 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:32:33,981 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:32:48,721 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:32:48,722 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:33:02,730 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:33:02,732 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:33:12,747 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:33:12,750 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:35:29,910 [main] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - client localAddress = /0:0:0:0:0:0:0:0:51430
+2018-12-30 19:35:39,951 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [ERROR] - heatbeat return error
+java.lang.NullPointerException
+	at java.lang.String.<init>(Unknown Source)
+	at com.cscecee.basesite.core.udp.client.UdpClient.heatbeat(UdpClient.java:104)
+	at com.cscecee.basesite.core.udp.client.UdpClient$1.run(UdpClient.java:119)
+2018-12-30 19:35:40,635 [main] [com.cscecee.basesite.core.udp.server.UdpServer] [INFO] - server is start up, bind port = 8800
+2018-12-30 19:35:52,004 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:35:52,023 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:35:52,024 [nioEventLoopGroup-2-1] [com.cscecee.basesite.core.udp.common.UdpChannelHandler] [INFO] - new rpc thread:rpc-0
+2018-12-30 19:35:52,038 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:36:05,050 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:36:05,057 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:36:18,065 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:36:18,071 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:36:32,086 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:36:32,093 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:36:51,099 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:36:51,102 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:37:07,107 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:37:07,110 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:37:21,113 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:37:21,121 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:37:33,128 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:37:33,128 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:37:43,139 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:37:43,139 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:37:53,152 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:37:53,156 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:38:03,159 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:38:03,161 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:38:18,164 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:38:18,166 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:38:35,168 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:38:35,169 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:38:53,186 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:38:53,195 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:39:10,200 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:39:10,203 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:39:20,208 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:39:20,212 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:39:34,230 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:39:34,231 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:39:49,235 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:39:49,239 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:40:02,242 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:40:02,243 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:40:14,253 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:40:14,257 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:40:26,272 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:40:26,275 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:40:38,279 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:40:38,283 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:40:51,287 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:40:51,291 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:41:06,294 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:41:06,295 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:41:21,299 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:41:21,303 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:41:37,305 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:41:37,306 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:41:49,309 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:41:49,310 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:42:03,315 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:42:03,318 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:42:14,321 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:42:14,323 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:42:25,324 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:42:25,328 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:42:40,334 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:42:40,337 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:42:51,349 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:42:51,353 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:43:10,357 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:43:10,361 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:43:27,365 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:43:27,367 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:43:41,372 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:43:41,375 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:43:59,378 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:43:59,380 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:44:17,383 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:44:17,385 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:44:35,387 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:44:35,390 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:44:50,393 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:44:50,396 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:45:03,399 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:45:03,401 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:45:19,406 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:45:19,408 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:45:36,417 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:45:36,421 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:45:48,425 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:45:48,427 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:45:58,429 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:45:58,431 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:46:15,435 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:46:15,439 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:46:26,444 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:46:26,447 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:46:39,448 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:46:39,450 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:46:58,456 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:46:58,459 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:47:13,464 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:47:13,467 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:47:25,472 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:47:25,476 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:47:38,478 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:47:38,480 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:47:50,484 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:47:50,488 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:48:01,490 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:48:01,491 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:48:14,493 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:48:14,494 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:48:31,497 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:48:31,500 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:48:43,504 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:48:43,507 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:48:58,510 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:48:58,512 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:49:09,515 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:49:09,520 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:49:22,522 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:49:22,524 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:49:38,527 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:49:38,530 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:49:48,532 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:49:48,534 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:50:04,538 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:50:04,541 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:50:16,545 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:50:16,549 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:50:32,552 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:50:32,554 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:50:43,557 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:50:43,558 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:50:57,560 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:50:57,561 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:51:13,564 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:51:13,565 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:51:31,568 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:51:31,570 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:51:42,572 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:51:42,574 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:51:54,576 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:51:54,578 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:52:09,580 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:52:09,582 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:52:28,585 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:52:28,587 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:52:42,590 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:52:42,592 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:53:00,595 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:53:00,597 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:53:13,599 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:53:13,601 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:53:24,602 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:53:24,604 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:53:43,605 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:53:43,606 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:53:58,609 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:53:58,610 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:54:10,611 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:54:10,612 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:54:22,616 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:54:22,618 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:54:39,621 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:54:39,623 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:54:49,625 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:54:49,627 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:55:02,629 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:55:02,630 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:55:14,633 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:55:14,634 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:55:24,637 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:55:24,639 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:55:40,641 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:55:40,643 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:55:57,646 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:55:57,647 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:56:11,650 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:56:11,651 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:56:21,654 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:56:21,656 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:56:34,659 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:56:34,661 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:56:50,663 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:56:50,664 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:57:06,666 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:57:06,668 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:57:23,670 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:57:23,671 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:57:39,676 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:57:39,680 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:57:50,683 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:57:50,685 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:58:03,690 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:58:03,694 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:58:22,698 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:58:22,701 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:58:38,705 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:58:38,708 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:58:54,712 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:58:54,715 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:59:11,720 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:59:11,722 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:59:24,725 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:59:24,727 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:59:41,728 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:59:41,730 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 19:59:54,731 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 19:59:54,733 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:00:12,735 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:00:12,737 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:00:28,742 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:00:28,744 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:00:41,747 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:00:41,748 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:00:58,752 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:00:58,755 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:01:13,759 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:01:13,762 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:01:23,763 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:01:23,768 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:01:37,773 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:01:37,778 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:01:51,781 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:01:51,784 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:02:10,786 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:02:10,792 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:02:21,798 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:02:21,803 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:02:34,805 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:02:34,811 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:02:46,816 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:02:46,822 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:02:58,831 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:02:58,836 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:03:08,839 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:03:08,840 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:03:25,854 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:03:25,859 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:03:38,863 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:03:38,869 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:03:57,881 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:03:57,886 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:04:07,890 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:04:07,899 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:04:17,902 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:04:17,907 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:04:36,911 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:04:36,917 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:04:49,920 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:04:49,925 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:05:01,928 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:05:01,934 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:05:13,939 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:05:13,946 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:05:29,951 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:05:29,957 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:05:39,960 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:05:39,968 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:05:56,972 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:05:56,978 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:06:07,983 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:06:07,988 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:06:26,992 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:06:26,997 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:06:41,001 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:06:41,006 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:06:54,009 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:06:54,014 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:07:11,025 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:07:11,030 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:07:30,034 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:07:30,036 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:07:47,038 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:07:47,039 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:07:58,042 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:07:58,047 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:08:09,050 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:08:09,055 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:08:24,059 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:08:24,064 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:08:38,067 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:08:38,072 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:08:52,076 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:08:52,081 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:09:05,084 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:09:05,089 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:09:24,093 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:09:24,098 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok
+2018-12-30 20:09:36,101 [rpc-0] [com.cscecee.basesite.core.udp.server.HeatbeatRequestHandler] [INFO] - send fib_res>>>>>hello
+2018-12-30 20:09:36,107 [Thread-0] [com.cscecee.basesite.core.udp.client.UdpClient] [INFO] - heatbeat return ok

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.cscecee.basesite.core.udp.common.Charsets;
+import com.cscecee.basesite.core.udp.common.RpcMsg;
 import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 import com.cscecee.basesite.core.udp.test.ExpRequest;
 import com.cscecee.basesite.core.udp.test.ExpResponse;
@@ -34,18 +35,20 @@ public class ExpRequestHandler extends RpcMsgHandler {
 		}
 		long cost = System.nanoTime() - start;
 		//响应输出
-		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
-		writeStr(buf, requestId);// len+ reqId
-		buf.writeBoolean(true);//isRsp=true
-		writeStr(buf, "0" );//len+fromId
-		writeStr(buf, "exp_rsp");//command
-		buf.writeBoolean(false);//isCompressed
+//		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
+//		writeStr(buf, requestId);// len+ reqId
+//		buf.writeBoolean(true);//isRsp=true
+//		writeStr(buf, "0" );//len+fromId
+//		writeStr(buf, "exp_rsp");//command
+//		buf.writeBoolean(false);//isCompressed
 		String strOutData = JSON.toJSONString(new ExpResponse(res, cost));
-		byte[] outData = strOutData.getBytes(Charsets.UTF8);
-		buf.writeInt(outData.length);// len
-		buf.writeBytes(outData);// data
+//		byte[] outData = strOutData.getBytes(Charsets.UTF8);
+//		buf.writeInt(outData.length);// len
+//		buf.writeBytes(outData);// data
 		//响应输出
+		RpcMsg rpcMsg = new RpcMsg(requestId, true, "0", "exp_rsp", false, strOutData.getBytes());
+	
 		logger.info("send exp_res>>>>>" + strOutData);
-		ctx.writeAndFlush(new DatagramPacket(buf, sender));
+		ctx.writeAndFlush(new DatagramPacket(rpcMsg.toByteBuf(), sender));
 	}
 }

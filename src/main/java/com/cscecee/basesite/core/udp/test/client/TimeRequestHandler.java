@@ -7,6 +7,7 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.cscecee.basesite.core.udp.common.RpcMsg;
 import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 
 import io.netty.buffer.ByteBuf;
@@ -26,17 +27,20 @@ public class TimeRequestHandler extends RpcMsgHandler {
 	@Override
 	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, String requestId, byte[] data) {
 		String rspData = new String(aDate.format(new Date()));
-		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
-		writeStr(buf, requestId);// len+ reqId
-		buf.writeBoolean(true);//isRsp=true
-		writeStr(buf, "0" );//len+fromId, 响应的可以不填真实fromid
-		writeStr(buf, "time_rsp");//****
-		buf.writeBoolean(false);//isCompressed
-		buf.writeInt(rspData.getBytes().length);// len
-		buf.writeBytes(rspData.getBytes());// data
+//		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
+//		writeStr(buf, requestId);// len+ reqId
+//		buf.writeBoolean(true);//isRsp=true
+//		writeStr(buf, "0" );//len+fromId, 响应的可以不填真实fromid
+//		writeStr(buf, "time_rsp");//****
+//		buf.writeBoolean(false);//isCompressed
+//		buf.writeInt(rspData.getBytes().length);// len
+//		buf.writeBytes(rspData.getBytes());// data
+		
+		RpcMsg rpcMsg = new RpcMsg(requestId, true, "0", "time_rsp", false, rspData.getBytes());
+
 		//响应输出
 		logger.info("send time_rsp>>>>>" + rspData);
-		ctx.writeAndFlush(new DatagramPacket(buf, sender));
+		ctx.writeAndFlush(new DatagramPacket(rpcMsg.toByteBuf(), sender));
 	}
 
 }

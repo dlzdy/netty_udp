@@ -33,13 +33,13 @@ public class TestUdpServer {
 		server.register("bigdata", new BigdataRequestHandler());
 		TestUdpServer testServer = new TestUdpServer(server);
 		server.bind();
-		while(true) {
-			try {
-				TimeUnit.SECONDS.sleep(60);
-				System.out.println("get time from client " + testServer.time("zdy001"));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+//		while(true) {
+//			try {
+//				TimeUnit.SECONDS.sleep(60);
+//				System.out.println("get time from client " + testServer.time("zdy001"));
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 }

@@ -89,16 +89,16 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		try {
 			InetSocketAddress sender = datagramPacket.sender();
 			ByteBuf in = datagramPacket.content();
-
-			System.out.println(datagramPacket.content().toString(CharsetUtil.UTF_8));
-			String requestId = readStr(in);//requestId
-			Boolean isRsp =in.readBoolean();
-			String fromId = readStr(in);//fromId
-			String command = readStr(in);//command
-			Boolean isCompressed =in.readBoolean();//isCompressed
-			int dataLen = in.readInt();
-			byte[] data = new byte[dataLen];
-			in.readBytes(data);
+			RpcMsg messageInput = RpcMsg.fromByteBuf(in);
+			//System.out.println(datagramPacket.content().toString(CharsetUtil.UTF_8));
+//			String requestId = readStr(in);//requestId
+//			Boolean isRsp =in.readBoolean();
+//			String fromId = readStr(in);//fromId
+//			String command = readStr(in);//command
+//			Boolean isCompressed =in.readBoolean();//isCompressed
+//			int dataLen = in.readInt();
+//			byte[] data = new byte[dataLen];
+//			in.readBytes(data);
 			//
 //			while (in.isReadable()) {
 //                byte[] dst = new byte[in.readableBytes()];
@@ -119,17 +119,17 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 			
 			// 用业务线程处理消息
 			this.executor.execute(() -> {
-				RpcMsg messageInput;
-				byte[] tmpData = data; 
-				if (isCompressed) {//接收进行解压
+				//RpcMsg messageInput;
+				byte[] tmpData = messageInput.getData(); 
+				if (messageInput.getIsCompressed()) {//接收进行解压
 					try {
-						tmpData = GzipUtils.ungzip(data);
+						tmpData = GzipUtils.ungzip(tmpData);
+						messageInput.setData(tmpData);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
-				if (isRsp) {//响应消息
-					messageInput = new RpcMsgRsp(requestId, fromId, command, isCompressed, tmpData);
+				if (messageInput.getIsRsp()) {//响应消息
 					RpcFuture future = (RpcFuture) pendingTasks.remove(messageInput.getRequestId());
 					if (future == null) {
 						logger.error("future not found with command {}", messageInput.getCommand());
@@ -141,8 +141,8 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 					clientMap.put("ip", sender.getAddress().getHostAddress());
 					clientMap.put("port", sender.getPort() + "");
 					clientMap.put("time", System.currentTimeMillis() + "");
-					peersMap.put(fromId, clientMap);//放入缓存，记录对端的ip，port
-					messageInput = new RpcMsgReq(requestId, fromId, command, isCompressed, tmpData);
+					peersMap.put(messageInput.getFromId(), clientMap);//放入缓存，记录对端的ip，port
+					//messageInput = new RpcMsgReq(requestId, fromId, command, isCompressed, tmpData);
 					this.handleMessage(ctx, sender, messageInput);
 				}
 			});
@@ -163,15 +163,15 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		}
 	}
 	
-	private String readStr(ByteBuf in) {
-		int len = in.readInt();
-		if (len < 0 || len > (1 << 20)) {
-			throw new DecoderException("string too long len=" + len);
-		}
-		byte[] bytes = new byte[len];
-		in.readBytes(bytes);
-		return new String(bytes, Charsets.UTF8);
-	}
+//	private String readStr(ByteBuf in) {
+//		int len = in.readInt();
+//		if (len < 0 || len > (1 << 20)) {
+//			throw new DecoderException("string too long len=" + len);
+//		}
+//		byte[] bytes = new byte[len];
+//		in.readBytes(bytes);
+//		return new String(bytes, Charsets.UTF8);
+//	}
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
@@ -186,7 +186,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 	 * @param msgReq
 	 * @return
 	 */
-	public RpcFuture send(String peerId, RpcMsgReq msgReq) {
+	public RpcFuture send(String peerId, RpcMsg msgReq) {
 		RpcFuture future = new RpcFuture();
 		Map<String, String> peerMap = peersMap.get(peerId);
 		if (peerMap == null || peerMap.isEmpty()) {
@@ -209,17 +209,10 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 	 * @param msgReq
 	 * @return
 	 */
-	public  RpcFuture send(InetSocketAddress remoteSocketAddress, RpcMsgReq msgReq) {
+	public  RpcFuture send(InetSocketAddress remoteSocketAddress, RpcMsg msgReq) {
 		RpcFuture future = new RpcFuture();
-
-		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
-		writeStr(buf, msgReq.getRequestId());// requestId
-		buf.writeBoolean(msgReq.getIsRsp());// isRsp
-		writeStr(buf, msgReq.getFromId() );// fromId
-		writeStr(buf, msgReq.getCommand());//command
-		buf.writeBoolean(msgReq.getIsCompressed());// isCompressed
-		buf.writeInt(msgReq.getData().length);
-		buf.writeBytes(msgReq.getData());//data
+	
+		ByteBuf buf = msgReq.toByteBuf();
 		if (getChannel() != null) {
 			getChannel().eventLoop().execute(() -> {
 				pendingTasks.put(msgReq.getRequestId(), future);

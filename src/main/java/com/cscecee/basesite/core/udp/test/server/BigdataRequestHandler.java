@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.cscecee.basesite.core.udp.common.Charsets;
+import com.cscecee.basesite.core.udp.common.RpcMsg;
 import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 import com.cscecee.basesite.core.udp.test.ExpRequest;
 import com.cscecee.basesite.core.udp.test.ExpResponse;
@@ -37,19 +38,21 @@ public class BigdataRequestHandler extends RpcMsgHandler {
 		System.out.println(message.toJSONString());
 		
 		//响应输出
-		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
-		writeStr(buf, requestId);// len+ reqId
-		buf.writeBoolean(true);//isRsp=true
-		writeStr(buf, "0" );//len+fromId
-		writeStr(buf, "bigdata_rsp");//command
-		buf.writeBoolean(false);//isCompressed
+//		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
+//		writeStr(buf, requestId);// len+ reqId
+//		buf.writeBoolean(true);//isRsp=true
+//		writeStr(buf, "0" );//len+fromId
+//		writeStr(buf, "bigdata_rsp");//command
+//		buf.writeBoolean(false);//isCompressed
 		
-		String strOutData = "bigdata is ok";
-		byte[] outData = strOutData.getBytes(Charsets.UTF8);
-		buf.writeInt(outData.length);// len
-		buf.writeBytes(outData);// data
+		String rspData = "bigdata is ok";
+//		byte[] outData = strOutData.getBytes(Charsets.UTF8);
+//		buf.writeInt(outData.length);// len
+//		buf.writeBytes(outData);// data
+		RpcMsg rpcMsg = new RpcMsg(requestId, true, "0", "bigdata_rsp", false, rspData.getBytes());
+
 		//响应输出
-		logger.info("send bigdata_rsp>>>>>" + strOutData);
-		ctx.writeAndFlush(new DatagramPacket(buf, sender));
+		logger.info("send bigdata_rsp>>>>>" + rspData);
+		ctx.writeAndFlush(new DatagramPacket(rpcMsg.toByteBuf(), sender));
 	}
 }
