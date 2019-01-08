@@ -33,7 +33,8 @@ public class TestUdpClient {
 
 	public String bigdata(byte[] bytes) {
 		try {
-			byte[] result = client.send("bigdata", true, bytes);
+			System.out.println(bytes.length);
+			byte[] result = client.send("bigdata", false, bytes);
 			return new String(result, Charsets.UTF8);
 		} catch (Exception e) {
 			return null;
@@ -63,7 +64,7 @@ public class TestUdpClient {
 	public static void main(String[] args) throws Exception {
 		// UdpClient client = new UdpClient("localhost", 8800, 0,
 		// UUID.randomUUID().toString().replaceAll("-", ""));
-		UdpClient client = new UdpClient("localhost", 8800, 0, "zdy001");
+		UdpClient client = new UdpClient("172.24.6.171", 8800, 0, "zdy001");
 		client.bind();
 		client.register("time", new TimeRequestHandler());
 		client.heatbeat();
