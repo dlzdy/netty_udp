@@ -35,6 +35,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 
 	private final static Logger logger = LoggerFactory.getLogger(UdpChannelHandler.class);
 	
+	public static int FRAME_SIZE = 1300;
 	// 业务线程池
 	private ThreadPoolExecutor executor;
 	
@@ -218,8 +219,36 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 				pendingTasks.put(msgReq.getRequestId(), future);
 				// datasocket
 				logger.info("send req " + msgReq.getCommand() +  " >>>>>  " + remoteSocketAddress);
-				getChannel().writeAndFlush(new DatagramPacket(buf, remoteSocketAddress));
-				
+				byte[] orignalData =  msgReq.getData();
+				int frameTotalCount = msgReq.getData().length / UdpChannelHandler.FRAME_SIZE;
+				int leftDataLen = msgReq.getData().length % UdpChannelHandler.FRAME_SIZE;
+				if (leftDataLen != 0) {
+					frameTotalCount++;
+				}
+				for (int i = 0; i <= frameTotalCount; i++) {
+					try {
+						RpcMsg tempMsgReq =(RpcMsg)msgReq.clone();
+						tempMsgReq.setFragmentIndex(i+1);
+						tempMsgReq.setTotalFragment(frameTotalCount);
+						if(i == frameTotalCount && leftDataLen > 0) {//最后一帧,有剩余
+							byte[] tempData = new byte[leftDataLen];
+							System.arraycopy(orignalData, i*UdpChannelHandler.FRAME_SIZE, tempData, 
+									i*UdpChannelHandler.FRAME_SIZE + leftDataLen, leftDataLen);
+							tempMsgReq.setData(tempData );
+							getChannel().writeAndFlush(new DatagramPacket(tempMsgReq.toByteBuf(), remoteSocketAddress));
+							
+						}else {
+							byte[] tempData = new byte[UdpChannelHandler.FRAME_SIZE];
+							System.arraycopy(orignalData, i*UdpChannelHandler.FRAME_SIZE, tempData, 
+									(i+1)*UdpChannelHandler.FRAME_SIZE, UdpChannelHandler.FRAME_SIZE);
+							tempMsgReq.setData(tempData );
+							getChannel().writeAndFlush(new DatagramPacket(tempMsgReq.toByteBuf(), remoteSocketAddress));
+						}
+					} catch (CloneNotSupportedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			});
 		} else {
 			future.fail(ConnectionClosed);
@@ -227,8 +256,8 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		return future;
 	}
 	
-	private void writeStr(ByteBuf buf, String s) {
-		buf.writeInt(s.length());
-		buf.writeBytes(s.getBytes(Charsets.UTF8));
-	}	
+//	private void writeStr(ByteBuf buf, String s) {
+//		buf.writeInt(s.length());
+//		buf.writeBytes(s.getBytes(Charsets.UTF8));
+//	}	
 }

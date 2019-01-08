@@ -11,7 +11,7 @@ import io.netty.handler.codec.DecoderException;
  * @author zhangdy
  *
  */
-public class RpcMsg {
+public class RpcMsg implements Cloneable {
 	/**
 	 * 消息号
 	 */
@@ -163,5 +163,12 @@ public class RpcMsg {
 	private static void writeStr(ByteBuf buf, String s) {
 		buf.writeInt(s.length());
 		buf.writeBytes(s.getBytes(Charsets.UTF8));
-	}		
+	}	
+    public Object clone() throws CloneNotSupportedException{
+        Object obj=super.clone();
+//        Address a=((Person)obj).getAddress();
+//        ((Person)obj).setAddress((Address) a.clone());
+        return obj;
+
+   }
 }
