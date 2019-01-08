@@ -1,6 +1,7 @@
 package com.cscecee.basesite.core.udp.common;
 
 import java.net.InetSocketAddress;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,12 +18,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.DatagramPacket;
 import io.netty.handler.codec.DecoderException;
+import io.netty.util.CharsetUtil;
 
 
 /**
@@ -86,6 +89,8 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		try {
 			InetSocketAddress sender = datagramPacket.sender();
 			ByteBuf in = datagramPacket.content();
+
+			System.out.println(datagramPacket.content().toString(CharsetUtil.UTF_8));
 			String requestId = readStr(in);//requestId
 			Boolean isRsp =in.readBoolean();
 			String fromId = readStr(in);//fromId
@@ -94,11 +99,37 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 			int dataLen = in.readInt();
 			byte[] data = new byte[dataLen];
 			in.readBytes(data);
+			//
+//			while (in.isReadable()) {
+//                byte[] dst = new byte[in.readableBytes()];
+//                in.readBytes(dst);
+//			}
+//			int aa = dataLen / 1024;
+//			int bb = dataLen % 1024;
+//			for (int i=0 ; i < aa; i++) {
+//				byte[] dataTemp = new byte[1024];
+//				//in.readBytes(dataTemp);
+//				System.arraycopy(dataTemp, 0, data, i*1024, dataTemp.length);
+//			}
+//			byte[] dataTemp = new byte[bb];
+//			in.readBytes(dataTemp);
+//			System.arraycopy(dataTemp, 0, data, aa*1024, dataTemp.length);
+//			System.out.println(new String(data,CharsetUtil.UTF_8));
+			//
+			
 			// 用业务线程处理消息
 			this.executor.execute(() -> {
 				RpcMsg messageInput;
+				byte[] tmpData = data; 
+				if (isCompressed) {//接收进行解压
+					try {
+						tmpData = GzipUtils.ungzip(data);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 				if (isRsp) {//响应消息
-					messageInput = new RpcMsgRsp(requestId, fromId, command, isCompressed, data);
+					messageInput = new RpcMsgRsp(requestId, fromId, command, isCompressed, tmpData);
 					RpcFuture future = (RpcFuture) pendingTasks.remove(messageInput.getRequestId());
 					if (future == null) {
 						logger.error("future not found with command {}", messageInput.getCommand());
@@ -106,14 +137,12 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 					}
 					future.success(messageInput.getData());					
 				}else {// 请求
-					
 					Map<String, String> clientMap = new HashMap<>();
 					clientMap.put("ip", sender.getAddress().getHostAddress());
 					clientMap.put("port", sender.getPort() + "");
 					clientMap.put("time", System.currentTimeMillis() + "");
-					
 					peersMap.put(fromId, clientMap);//放入缓存，记录对端的ip，port
-					messageInput = new RpcMsgReq(requestId, fromId, command, isCompressed, data);
+					messageInput = new RpcMsgReq(requestId, fromId, command, isCompressed, tmpData);
 					this.handleMessage(ctx, sender, messageInput);
 				}
 			});

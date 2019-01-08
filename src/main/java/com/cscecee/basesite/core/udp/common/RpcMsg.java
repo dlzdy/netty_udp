@@ -33,14 +33,32 @@ public class RpcMsg {
 	 */
 	protected byte[] data;
 
-	public RpcMsg(String requestId, Boolean isRsp, String fromId, String command, Boolean isCompressed,
-			byte[] data) {
+	public RpcMsg(String requestId, Boolean isRsp, String fromId, String command, Boolean isCompressed, byte[] data) {
 		this.requestId = requestId;
 		this.isRsp = isRsp;
 		this.fromId = fromId;
 		this.command = command;
 		this.isCompressed = isCompressed;
 		this.data = data;
+		
+//		if (isRsp) {// 响应，压缩标记->解压，
+//			if (isCompressed) {
+//				try {
+//					this.data = GzipUtils.ungzip(data);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}else {// 請求的
+//			if (isCompressed) {// 压缩标记->压缩
+//				try {
+//					this.data = GzipUtils.gzip(data);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//
+//			}
+//		}
 	}
 
 	public Boolean getIsRsp() {
@@ -90,6 +108,5 @@ public class RpcMsg {
 	public void setData(byte[] data) {
 		this.data = data;
 	}
-
 
 }

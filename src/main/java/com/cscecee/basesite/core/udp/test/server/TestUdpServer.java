@@ -30,6 +30,7 @@ public class TestUdpServer {
 		server.register("fib", new FibRequestHandler());
 		server.register("exp", new ExpRequestHandler());
 		server.register("heatbeat", new HeatbeatRequestHandler());
+		server.register("bigdata", new BigdataRequestHandler());
 		TestUdpServer testServer = new TestUdpServer(server);
 		server.bind();
 		while(true) {

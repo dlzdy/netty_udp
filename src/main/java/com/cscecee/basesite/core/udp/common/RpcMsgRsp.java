@@ -9,6 +9,6 @@ public class RpcMsgRsp extends RpcMsg{
 
 	public RpcMsgRsp(String requestId, String fromId, String command, Boolean isCompressed,
 			byte[] data) {
-		super(requestId, false, fromId, command, isCompressed, data);
+		super(requestId, true, fromId, command, isCompressed, data);
 	}
 }

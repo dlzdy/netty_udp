@@ -6,10 +6,18 @@ package com.cscecee.basesite.core.udp.common;
  *
  */
 public class RpcMsgReq extends RpcMsg{
-
+	/**
+	 * 
+	 * @param requestId
+	 * @param fromId
+	 * @param command
+	 * @param isCompressed
+	 * @param data 
+	 *        压缩/解压后的数据
+	 */
 	public RpcMsgReq(String requestId, String fromId, String command, Boolean isCompressed,
-			byte[] payload) {
-		super(requestId, false, fromId, command, isCompressed, payload);
+			byte[] data) {
+		super(requestId, false, fromId, command, isCompressed, data);
 	}
 
 }
