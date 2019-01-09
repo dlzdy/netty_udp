@@ -64,7 +64,8 @@ public abstract class UdpEndPoint {
 		// 2.指定使用NioServerSocketChannel来处理连接请求。
 		bootstrap.channel(NioDatagramChannel.class);
 		// 3.配置TCP/UDP参数。
-		//bootstrap.option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(65535));//加上这个，里面是最大接收、发送的长度		
+		// 里面是最大接收、发送的长度
+		bootstrap.option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(65535));		
 		// 4.配置handler和childHandler，数据处理器。
 		udpChannelHandler =  new UdpChannelHandler(this,10);
 		

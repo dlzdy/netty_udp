@@ -13,20 +13,20 @@ import io.netty.handler.codec.DecoderException;
  */
 public class RpcMsg implements Cloneable {
 
-	public static int FRAGMENT_SIZE = 1300;
+	public static int FRAGMENT_SIZE = 32768;//32KB
 
 	/**
 	 * 消息号
 	 */
 	protected String requestId;
 	/**
-	 * 分片序号1,2,3
+	 * 分片序号0,1,2,3, 从0开始算第1帧, -1收全了
 	 */
-	protected Integer fragmentIndex = 0;
+	protected Integer fragmentIndex = -1;
 	/**
 	 * 分片总数，默认1
 	 */
-	protected Integer totalFragment = 0;
+	protected Integer totalFragment = 1;
 	/**
 	 * 请求0，响应1，
 	 */
@@ -186,9 +186,7 @@ public class RpcMsg implements Cloneable {
 		}
 		//不分组的的索引=1
 		if (totalFragment == 1) {
-			fragmentIndex = 1;
-		}else {
-			fragmentIndex = 1;
+			fragmentIndex = -1;
 		}
 	}
 }

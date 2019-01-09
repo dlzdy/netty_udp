@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,7 +67,8 @@ public class TestUdpClient {
 	public static void main(String[] args) throws Exception {
 		// UdpClient client = new UdpClient("localhost", 8800, 0,
 		// UUID.randomUUID().toString().replaceAll("-", ""));
-		UdpClient client = new UdpClient("localhost", 8800, 0, "zdy001");
+		//UdpClient client = new UdpClient("172.24.6.171", 8800, 0, "zdy001");
+		UdpClient client = new UdpClient("182.92.2.80", 8800, 0, "zdy001");
 		client.bind();
 		client.register("time", new TimeRequestHandler());
 		//for test heartbeat
@@ -109,12 +111,14 @@ public class TestUdpClient {
 		// }
 
 		/* */
-		String encoding = "UTF-8";
 		File file = new File("test.json");
+		file = new File("3mb.rar");
+//		file = new File("W.P.S.6929.12012.0.exe");
 		Long filelength = file.length();
 		byte[] filecontent = new byte[filelength.intValue()];
 		try {
 			FileInputStream in = new FileInputStream(file);
+			//InputStreamReader isr = new InputStreamReader(fis, "UTF-8"); 
 			in.read(filecontent);
 			in.close();
 		} catch (FileNotFoundException e) {

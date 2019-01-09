@@ -4,6 +4,7 @@ import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -120,8 +121,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 				if (messageInput.getTotalFragment() ==1 ) {//只有一个包，不需要组包
 					dealRpcMsg(ctx, sender, messageInput);//
 				}else if(messageInput.getTotalFragment() > 1) {//分包发送的，需要重新组包
-					logger.info("recieve fragment reqId=" +  messageInput.getRequestId()  + "  |  "+ messageInput.getFragmentIndex() + "/" + messageInput.getTotalFragment());
-					
+					logger.info("recieve fragment reqId=" +  messageInput.getRequestId()  + "  |  "+ (messageInput.getFragmentIndex()+1) + "/" + messageInput.getTotalFragment());
 					Map<Integer, RpcMsg> fragementMap = assemPkgMap.get(messageInput.getRequestId());
 					if (fragementMap == null || fragementMap.isEmpty()) {
 						fragementMap = new HashMap<>();
@@ -129,10 +129,12 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 					}
 					fragementMap.put(messageInput.getFragmentIndex(), messageInput);
 					//所有分组收全了
+					logger.info("fragementMap.size()=" + fragementMap.size());
+					logger.info("messageInput.getTotalFragment()=" + messageInput.getTotalFragment());
 					if (fragementMap.size() == messageInput.getTotalFragment()) {//收全了
-						byte[] totalBytes = fragementMap.get(0).getData();
+						byte[] totalBytes = fragementMap.get(0).getData();//第一个
 						for (int i = 1; i < fragementMap.size(); i++) {
-							totalBytes = byteMergerAll(totalBytes, fragementMap.get(i+1).getData());
+							totalBytes = byteMergerAll(totalBytes, fragementMap.get(i).getData());
 						}
 						messageInput.setData(totalBytes);//设置全部data
 						logger.info("recieve total fragment " + fragementMap.size());
@@ -271,6 +273,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 				byte[] orignalData =  msgReq.getData();
 				int orignalDataLen = orignalData.length;
 				if (msgReq.getTotalFragment() == 1) {//未超长
+					logger.info("send fragment len : " + orignalDataLen + " bytes | " + (1) +  "/" + msgReq.getTotalFragment());
 					getChannel().writeAndFlush(new DatagramPacket(msgReq.toByteBuf(), remoteSocketAddress));
 				} else {//超长
 					int fragmentTotal = msgReq.getTotalFragment() ;
@@ -283,9 +286,9 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 							RpcMsg tempMsgReq =(RpcMsg)msgReq.clone();
 							byte[] tempData = new byte[nextDataLen];
 							System.arraycopy(orignalData, i * fragmentSize, tempData, 0 , nextDataLen);
-							tempMsgReq.setFragmentIndex(i+1);//帧序号，从1开始
+							tempMsgReq.setFragmentIndex(i);//帧序号，从0开始
 							tempMsgReq.setData(tempData);
-							logger.info("send fragment len : " + nextDataLen + " bytes | " + tempMsgReq.getFragmentIndex() +  "/" + tempMsgReq.getTotalFragment());
+							logger.info("send fragment len : " + nextDataLen + " bytes | " + (tempMsgReq.getFragmentIndex()+1) +  "/" + tempMsgReq.getTotalFragment());
 							getChannel().writeAndFlush(new DatagramPacket(tempMsgReq.toByteBuf(), remoteSocketAddress));							
 							
 						} catch (Exception e) {
@@ -293,7 +296,8 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 						} finally {
 							//设置发送间隔，防止太快
 							try {
-								TimeUnit.MILLISECONDS.sleep(2);
+								//30~100 随机
+								TimeUnit.MILLISECONDS.sleep(30 +(new Random()).nextInt(70));
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
