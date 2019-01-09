@@ -39,6 +39,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 	private UdpEndPoint udpEndPoint;
 	// 记录udp客户端信息, <formId, <ip,port>>
 	private ConcurrentMap<String, Map<String, String>> peersMap = new ConcurrentHashMap<>();
+	
 	// 记录异步请求任务, <reqId, RpcFuture>
 	private ConcurrentMap<Long, RpcFuture> pendingSendTasks = new ConcurrentHashMap<>();
 	// 记录请求消息,<reqId_index, RpcMsg>>
@@ -46,8 +47,12 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 
 	// 记录接收udp多包信息,<reqId,<index, RpcMsg>>
 	private ConcurrentMap<Long, Map<Integer, RpcMsg>> assemPkgMap = new ConcurrentHashMap<>();
+	// 记录接收udp多包信息,<reqId, time>
+	private ConcurrentMap<Long, Long> assemPkgTimeMap = new ConcurrentHashMap<>();
 
 	private Throwable ConnectionClosed = new Exception("rpc connection not active error");
+	
+	private Throwable NoResponse = new Exception("no response");
 	
 	public UdpChannelHandler(UdpEndPoint udpEndPoint, int workerThreads) {
 		// 业务队列最大1000,避免堆积
@@ -68,6 +73,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		this.executor = new ThreadPoolExecutor(1, workerThreads, 30, TimeUnit.SECONDS, queue, factory,
 				new CallerRunsPolicy());
 		this.udpEndPoint = udpEndPoint;
+		
 		//检查发送超时，重发线程
 		new Thread("resend-thread") {
 			public void run() {
@@ -85,24 +91,66 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 						}
 						// 删除
 						for (String key : removeList) {
+							//从已发送队列中删除
 							hasSendMap.remove(key);
+							//从已发送任务中删除，返回无响应错误信息
+							String reqId = key.substring(0, key.indexOf("_"));
+							RpcFuture future = (RpcFuture) pendingSendTasks.remove(reqId);
+							if (future != null) {
+								future.fail(NoResponse);								
+							}
 						}
 						// 重发
 						for (String key : reSendList) {
-							getChannel().writeAndFlush(hasSendMap.get(key));
+							HasSendUdpMsg hasSendUdpMsg = hasSendMap.get(key);
+							hasSendUdpMsg.setSendCount(hasSendUdpMsg.getSendCount() + 1);
+							hasSendUdpMsg.setLastSendtime(System.currentTimeMillis());
+							getChannel().writeAndFlush(hasSendUdpMsg.getUpdPkg());
+							TimeUnit.MILLISECONDS.sleep(50);//间隔
 						}
 
 					} catch (Exception e) {
 						logger.error("failed", e);
 					}finally {
 						try {
-							Thread.sleep(3000);
+							Thread.sleep(1000);
 						} catch (Exception e) {
 						}
 					}
 				}
 			}
 		}.start();
+		
+		//检查接收超时线程
+		new Thread("checkRecieve-thread") {
+			public void run() {
+				while(true) {
+					List<Long> removeList = new ArrayList<>();//删除
+					try {
+						for (Long  lastUpdateTime: assemPkgTimeMap.keySet()) {
+								if(System.currentTimeMillis() - lastUpdateTime > 30000) {//距离最后一个分组，30秒还没响应，删除
+								removeList.add(lastUpdateTime);
+							}
+						}
+						// 删除
+						for (Long reqId : removeList) {
+							assemPkgTimeMap.remove(reqId);
+							assemPkgMap.remove(reqId);
+						}
+
+					} catch (Exception e) {
+						logger.error("failed", e);
+					}finally {
+						try {
+							Thread.sleep(5000);
+						} catch (Exception e) {
+						}
+					}
+				}
+			}
+		}.start();
+		
+		
 	}
 
 	public Channel getChannel() {
@@ -128,7 +176,6 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 			InetSocketAddress sender = datagramPacket.sender();
 			ByteBuf in = datagramPacket.content();
 			RpcMsg messageInput = RpcMsg.fromByteBuf(in);
-			//logger.info("recieve fragment reqId=" +  messageInput.getRequestId()  + "  |  "+ (messageInput.getFragmentIndex()+1) + "/" + messageInput.getTotalFragment());
 
 			// 保存对端ip地址，用于服务器端->client
 			Map<String, String> clientMap = peersMap.get(messageInput.getFromId());
@@ -153,11 +200,22 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 						e.printStackTrace();
 					}
 				}
-				if (messageInput.getDirection() == 2) {// ack
+				
+				switch (messageInput.getDirection()) {
+				case 0://req
+					
+					break;
+				case 1://rsp
+					
+					break;
+				case 2://ack
 					String ackKey = messageInput.getReqId() + "_" + messageInput.getFragmentIndex();
 					logger.info("ack reqId=" + ackKey);
 					hasSendMap.remove(ackKey);
-					return;
+					break;
+
+				default:
+					break;
 				}
 				
 				//req , rsp
@@ -171,6 +229,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 						assemPkgMap.put(messageInput.getReqId(), fragementMap);
 					}
 					fragementMap.put(messageInput.getFragmentIndex(), messageInput);
+					assemPkgTimeMap.put(messageInput.getReqId(), System.currentTimeMillis());//记录时间
 					//所有分组收全了
 					logger.info("fragementMap.size()=" + fragementMap.size());
 					logger.info("messageInput.getTotalFragment()=" + messageInput.getTotalFragment());
@@ -182,6 +241,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 						messageInput.setData(totalBytes);//设置全部data
 						logger.info("recieve total fragment " + fragementMap.size());
 						assemPkgMap.remove(messageInput.getReqId());//删除缓存
+						assemPkgTimeMap.remove(messageInput.getReqId());//记录时间
 						dealRpcMsg(ctx, sender, messageInput);
 					}
 					
@@ -200,7 +260,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		if (messageInput.getDirection() == 1) {//rsp消息
 			RpcFuture future = (RpcFuture) pendingSendTasks.remove(messageInput.getReqId());
 			if (future == null) {
-				logger.error("future not found with command {}", messageInput.getCommand());
+				logger.error("future is null");
 				return;
 			}
 			future.success(messageInput.getData());					
