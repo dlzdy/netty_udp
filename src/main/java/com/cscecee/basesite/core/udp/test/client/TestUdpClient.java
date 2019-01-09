@@ -113,7 +113,7 @@ public class TestUdpClient {
 		/* */
 		File file = new File("test.json");
 		file = new File("3mb.rar");
-//		file = new File("W.P.S.6929.12012.0.exe");
+		file = new File("W.P.S.6929.12012.0.exe");
 		Long filelength = file.length();
 		byte[] filecontent = new byte[filelength.intValue()];
 		try {
@@ -127,7 +127,7 @@ public class TestUdpClient {
 			e.printStackTrace();
 		}
 		System.out.printf("big data result = " + testClient.bigdata(filecontent));
-
-		// client.close();
+		
+		client.close();
 	}
 }

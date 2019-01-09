@@ -93,6 +93,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 			InetSocketAddress sender = datagramPacket.sender();
 			ByteBuf in = datagramPacket.content();
 			RpcMsg messageInput = RpcMsg.fromByteBuf(in);
+			//logger.info("recieve fragment reqId=" +  messageInput.getRequestId()  + "  |  "+ (messageInput.getFragmentIndex()+1) + "/" + messageInput.getTotalFragment());
 
 			// 保存对端ip地址，用于服务器端->client
 			Map<String, String> clientMap = peersMap.get(messageInput.getFromId());
