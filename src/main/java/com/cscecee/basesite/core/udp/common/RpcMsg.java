@@ -15,7 +15,7 @@ public class RpcMsg implements Cloneable {
 	/**
 	 * 消息号
 	 */
-	protected String requestId;
+	protected long reqId;
 	/**
 	 * 分片序号1,2,3
 	 */
@@ -27,7 +27,7 @@ public class RpcMsg implements Cloneable {
 	/**
 	 * 请求0，响应1，
 	 */
-	protected Boolean isRsp=false;
+	protected boolean isRsp=false;
 	/**
 	 * 消息来源,server端=0，client=appid
 	 */
@@ -39,14 +39,14 @@ public class RpcMsg implements Cloneable {
 	/**
 	 * 非压缩0，压缩1
 	 */
-	protected Boolean isCompressed = false;
+	protected boolean isCompressed = false;
 	/**
 	 * 消息净荷
 	 */
 	protected byte[] data;
 
-	public RpcMsg(String requestId, Boolean isRsp, String fromId, String command, Boolean isCompressed, byte[] data) {
-		this.requestId = requestId;
+	public RpcMsg(Long reqId, Boolean isRsp, String fromId, String command, Boolean isCompressed, byte[] data) {
+		this.reqId = reqId;
 		this.isRsp = isRsp;
 		this.fromId = fromId;
 		this.command = command;
@@ -55,21 +55,30 @@ public class RpcMsg implements Cloneable {
 
 	}
 
-	public Boolean getIsRsp() {
+	public boolean isRsp() {
 		return isRsp;
 	}
 
-	public void setIsRsp(Boolean isRsp) {
+
+	public void setRsp(boolean isRsp) {
 		this.isRsp = isRsp;
 	}
 
-	public Boolean getIsCompressed() {
+
+	public boolean isCompressed() {
 		return isCompressed;
 	}
 
-	public void setIsCompressed(Boolean isCompressed) {
+
+	public void setCompressed(boolean isCompressed) {
 		this.isCompressed = isCompressed;
 	}
+
+
+	public void setReqId(long reqId) {
+		this.reqId = reqId;
+	}
+
 
 	public String getFromId() {
 		return fromId;
@@ -79,12 +88,12 @@ public class RpcMsg implements Cloneable {
 		this.fromId = fromId;
 	}
 
-	public String getRequestId() {
-		return requestId;
+	public Long getReqId() {
+		return reqId;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setReqId(Long reqId) {
+		this.reqId = reqId;
 	}
 
 	public String getCommand() {
@@ -121,13 +130,13 @@ public class RpcMsg implements Cloneable {
 
 	public ByteBuf toByteBuf( ) {
 		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
-		writeStr(buf, this.getRequestId());// requestId
+		buf.writeLong(this.getReqId());// reqId
 		buf.writeInt(this.getFragmentIndex());//fragmentIndex
 		buf.writeInt(this.getTotalFragment());//totalFragment
-		buf.writeBoolean(this.getIsRsp());// isRsp
+		buf.writeBoolean(this.isRsp());// isRsp
 		writeStr(buf, this.getFromId() );// fromId
 		writeStr(buf, this.getCommand());//command
-		buf.writeBoolean(this.getIsCompressed());// isCompressed
+		buf.writeBoolean(this.isCompressed());// isCompressed
 		buf.writeInt(this.getData().length);
 		buf.writeBytes(this.getData());//data
 		
@@ -135,7 +144,7 @@ public class RpcMsg implements Cloneable {
 	}
 	
 	public static RpcMsg fromByteBuf(ByteBuf in) {
-		String requestId = readStr(in);//requestId
+		long reqId = in.readLong();//reqId
 		int fragmentIndex = in.readInt();//fragmentIndex
 		int totalFragment = in.readInt();//totalFragment
 		Boolean isRsp =in.readBoolean();//isRsp
@@ -146,7 +155,7 @@ public class RpcMsg implements Cloneable {
 		byte[] data = new byte[dataLen];
 		in.readBytes(data);
 		//
-		RpcMsg rpcMsg = new RpcMsg(requestId, isRsp, fromId, command, isCompressed, data);
+		RpcMsg rpcMsg = new RpcMsg(reqId, isRsp, fromId, command, isCompressed, data);
 		rpcMsg.setFragmentIndex(fragmentIndex);
 		rpcMsg.setTotalFragment(totalFragment);
 		return rpcMsg;

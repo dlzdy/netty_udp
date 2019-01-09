@@ -43,7 +43,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 
 	private ConcurrentMap<String, Map<String, String>> peersMap = new ConcurrentHashMap<>();
 
-	private ConcurrentMap<String, RpcFuture> pendingTasks = new ConcurrentHashMap<>();
+	private ConcurrentMap<Long, RpcFuture> pendingTasks = new ConcurrentHashMap<>();
 
 	private Throwable ConnectionClosed = new Exception("rpc connection not active error");
 	
@@ -122,7 +122,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 			this.executor.execute(() -> {
 				//RpcMsg messageInput;
 				byte[] tmpData = messageInput.getData(); 
-				if (messageInput.getIsCompressed()) {//接收进行解压
+				if (messageInput.isCompressed()) {//接收进行解压
 					try {
 						tmpData = GzipUtils.ungzip(tmpData);
 						messageInput.setData(tmpData);
@@ -130,8 +130,8 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 						e.printStackTrace();
 					}
 				}
-				if (messageInput.getIsRsp()) {//响应消息
-					RpcFuture future = (RpcFuture) pendingTasks.remove(messageInput.getRequestId());
+				if (messageInput.isRsp()) {//响应消息
+					RpcFuture future = (RpcFuture) pendingTasks.remove(messageInput.getReqId());
 					if (future == null) {
 						logger.error("future not found with command {}", messageInput.getCommand());
 						return;
@@ -158,7 +158,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		
 		RpcMsgHandler handler = udpEndPoint.getHandlers().get(messageInput.getCommand());
 		if (handler != null) {
-			handler.handle(ctx, sender, messageInput.getRequestId(),  messageInput.getData());
+			handler.handle(ctx, sender, messageInput.getReqId(),  messageInput.getData());
 		} else {
 			logger.error("not found handler of " + messageInput.getCommand());
 		}
@@ -216,7 +216,7 @@ public class UdpChannelHandler extends SimpleChannelInboundHandler<DatagramPacke
 		ByteBuf buf = msgReq.toByteBuf();
 		if (getChannel() != null) {
 			getChannel().eventLoop().execute(() -> {
-				pendingTasks.put(msgReq.getRequestId(), future);
+				pendingTasks.put(msgReq.getReqId(), future);
 				// datasocket
 				logger.info("send req " + msgReq.getCommand() +  " >>>>>  " + remoteSocketAddress);
 				byte[] orignalData =  msgReq.getData();

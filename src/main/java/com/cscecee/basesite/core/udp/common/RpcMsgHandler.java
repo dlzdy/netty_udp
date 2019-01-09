@@ -9,7 +9,7 @@ import io.netty.channel.ChannelHandlerContext;
  */
 public abstract class RpcMsgHandler {
 
-	public abstract void handle(ChannelHandlerContext ctx, InetSocketAddress sender, String requestId, byte[] data);
+	public abstract void handle(ChannelHandlerContext ctx, InetSocketAddress sender, long reqId, byte[] data);
 	
 //	protected void writeStr(ByteBuf buf, String s) {
 //		buf.writeInt(s.length());
