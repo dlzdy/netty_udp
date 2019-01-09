@@ -11,9 +11,7 @@ import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSON;
 import com.cscecee.basesite.core.udp.client.UdpClient;
 import com.cscecee.basesite.core.udp.common.Charsets;
-import com.cscecee.basesite.core.udp.common.RPCException;
 import com.cscecee.basesite.core.udp.test.ExpRequest;
-import com.cscecee.basesite.core.udp.test.ExpResponse;
 
 public class TestUdpClient {
 	private final static Logger logger = LoggerFactory.getLogger(TestUdpClient.class);
@@ -35,7 +33,7 @@ public class TestUdpClient {
 
 	public String bigdata(byte[] bytes) {
 		try {
-			System.out.println(bytes.length);
+			System.out.println("bigdata len-->" +bytes.length);
 			byte[] result = client.send("bigdata", false, bytes);
 			return new String(result, Charsets.UTF8);
 		} catch (Exception e) {
@@ -66,18 +64,21 @@ public class TestUdpClient {
 	public static void main(String[] args) throws Exception {
 		// UdpClient client = new UdpClient("localhost", 8800, 0,
 		// UUID.randomUUID().toString().replaceAll("-", ""));
-		UdpClient client = new UdpClient("localhost", 8800, 0, "zdy001");
+		//UdpClient client = new UdpClient("172.24.6.171", 8800, 0, "zdy001");
+		UdpClient client = new UdpClient("182.92.2.80", 8800, 0, "zdy001");
 		client.bind();
 		client.register("time", new TimeRequestHandler());
-		client.heatbeat();
-		//client.startHeatbeat();
-		TestUdpClient testClient = new TestUdpClient(client);
-
-		System.out.printf("fib(%d) = %s\n", 2, (testClient.fib(2) + ""));
+		//for test heartbeat
+//		client.heartbeat();
+//		client.startHeartbeat();
 		
-		String strJsonObj = testClient.exp(2, 2) + "";
-		ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
-		System.out.printf("exp2(%d) = %d cost=%dns\n", 2, expResp.getValue(), expResp.getCostInNanos());
+		TestUdpClient testClient = new TestUdpClient(client);
+		//for test fib
+//		System.out.printf("fib(%d) = %s\n", 2, (testClient.fib(2) + ""));
+		//for test exp		
+//		String strJsonObj = testClient.exp(2, 2) + "";
+//		ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
+//		System.out.printf("exp2(%d) = %d cost=%dns\n", 2, expResp.getValue(), expResp.getCostInNanos());
 		
 //		for (int i = 0; i < 30; i++) {
 //			try {
@@ -107,12 +108,14 @@ public class TestUdpClient {
 		// }
 
 		/* */
-		String encoding = "UTF-8";
 		File file = new File("test.json");
+		file = new File("3mb.rar");
+		file = new File("W.P.S.6929.12012.0.exe");
 		Long filelength = file.length();
 		byte[] filecontent = new byte[filelength.intValue()];
 		try {
 			FileInputStream in = new FileInputStream(file);
+			//InputStreamReader isr = new InputStreamReader(fis, "UTF-8"); 
 			in.read(filecontent);
 			in.close();
 		} catch (FileNotFoundException e) {
@@ -121,7 +124,7 @@ public class TestUdpClient {
 			e.printStackTrace();
 		}
 		System.out.printf("big data result = " + testClient.bigdata(filecontent));
-
-		// client.close();
+		
+		client.close();
 	}
 }

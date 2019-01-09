@@ -1,21 +1,15 @@
 package com.cscecee.basesite.core.udp.test.server;
 
-import java.io.UnsupportedEncodingException;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.net.InetSocketAddress;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.cscecee.basesite.core.udp.common.Charsets;
 import com.cscecee.basesite.core.udp.common.RpcMsg;
 import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
-import com.cscecee.basesite.core.udp.test.ExpRequest;
-import com.cscecee.basesite.core.udp.test.ExpResponse;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 
@@ -25,31 +19,20 @@ public class BigdataRequestHandler extends RpcMsgHandler {
 	private final static Logger logger = LoggerFactory.getLogger(BigdataRequestHandler.class);
 
 	@Override
-	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, String requestId, byte[] data) {
-		// ExpRequest
-		JSONObject message = null;
+	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, long reqId, byte[] data) {
 		try {
-			message = JSON.parseObject(new String(data, "UTF-8"));
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
+			File file =new File(System.currentTimeMillis() + ".dat");
+			FileOutputStream out =new FileOutputStream(file);
+			out.write(data);
+			out.close();
+			System.out.println("save file = " + file.getAbsolutePath());
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		System.out.println(message.toJSONString());
-		
-		//响应输出
-//		ByteBuf buf = PooledByteBufAllocator.DEFAULT.directBuffer();
-//		writeStr(buf, requestId);// len+ reqId
-//		buf.writeBoolean(true);//isRsp=true
-//		writeStr(buf, "0" );//len+fromId
-//		writeStr(buf, "bigdata_rsp");//command
-//		buf.writeBoolean(false);//isCompressed
-		
 		String rspData = "bigdata is ok";
-//		byte[] outData = strOutData.getBytes(Charsets.UTF8);
-//		buf.writeInt(outData.length);// len
-//		buf.writeBytes(outData);// data
-		RpcMsg rpcMsg = new RpcMsg(requestId, true, "0", "bigdata_rsp", false, rspData.getBytes());
+		RpcMsg rpcMsg = new RpcMsg(reqId, true, "0", "bigdata_rsp", false, rspData.getBytes());
 
 		//响应输出
 		logger.info("send bigdata_rsp>>>>>" + rspData);

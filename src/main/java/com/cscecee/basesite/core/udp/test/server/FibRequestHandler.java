@@ -11,8 +11,6 @@ import com.cscecee.basesite.core.udp.common.Charsets;
 import com.cscecee.basesite.core.udp.common.RpcMsg;
 import com.cscecee.basesite.core.udp.common.RpcMsgHandler;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 
@@ -30,7 +28,7 @@ public class FibRequestHandler extends RpcMsgHandler {
 	}
 
 	@Override
-	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, String requestId, byte[] data) {
+	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, long reqId, byte[] data) {
 		int n = Integer.valueOf(new String(data));
 		for (int i = fibs.size(); i < n + 1; i++) {
 			long value = fibs.get(i - 2) + fibs.get(i - 1);
@@ -47,7 +45,7 @@ public class FibRequestHandler extends RpcMsgHandler {
 //		buf.writeInt(outData.length);// len
 //		buf.writeBytes(outData);// data
 		//响应输出
-		RpcMsg rpcMsg = new RpcMsg(requestId, true, "0", "fib_rsp", false, outData);
+		RpcMsg rpcMsg = new RpcMsg(reqId, true, "0", "fib_rsp", false, outData);
 		logger.info("send fib_res>>>>>" + fibs.get(n));
 		ctx.writeAndFlush(new DatagramPacket(rpcMsg.toByteBuf(), sender));
 	}

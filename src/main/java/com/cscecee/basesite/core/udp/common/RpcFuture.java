@@ -8,8 +8,12 @@ import java.util.concurrent.TimeoutException;
 
 public class RpcFuture implements Future {
 
+	private int timeOut = 10;//10 秒
+	
 	private byte[] result;
+	
 	private Throwable error;
+	
 	private CountDownLatch latch = new CountDownLatch(1);
 
 	@Override
@@ -42,11 +46,17 @@ public class RpcFuture implements Future {
 	 */
 	@Override
 	public byte[] get() throws InterruptedException, ExecutionException {
-		latch.await(10, TimeUnit.SECONDS);
+		latch.await(timeOut, TimeUnit.SECONDS);
 		if (error != null) {
 			throw new ExecutionException(error);
 		}
 		return result;
+	}
+	/**
+	 * 等待toal*10秒超时时间
+	 */
+	public byte[] get(int totalFragment) throws InterruptedException, ExecutionException, TimeoutException {
+		return get(timeOut * totalFragment, TimeUnit.SECONDS);
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package com.cscecee.basesite.core.udp.common;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RpcMsgUtils {
+public class RpcMsgRegisterUtils {
 
 	private Map<String, RpcMsgHandler> handlers = new HashMap<>();
 	

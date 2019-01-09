@@ -35,14 +35,14 @@ public abstract class UdpEndPoint {
 
 	protected UdpChannelHandler udpChannelHandler;
 	
-	protected RpcMsgUtils handlers = new RpcMsgUtils();
+	protected RpcMsgRegisterUtils handlers = new RpcMsgRegisterUtils();
 
 	
 	public Channel getChannel() {
 		return channel;
 	}
 
-	public RpcMsgUtils getHandlers() {
+	public RpcMsgRegisterUtils getHandlers() {
 		return handlers;
 	}
 
@@ -64,7 +64,8 @@ public abstract class UdpEndPoint {
 		// 2.指定使用NioServerSocketChannel来处理连接请求。
 		bootstrap.channel(NioDatagramChannel.class);
 		// 3.配置TCP/UDP参数。
-		//bootstrap.option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(65535));//加上这个，里面是最大接收、发送的长度		
+		// 里面是最大接收、发送的长度
+		bootstrap.option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(65535));		
 		// 4.配置handler和childHandler，数据处理器。
 		udpChannelHandler =  new UdpChannelHandler(this,10);
 		
@@ -132,13 +133,13 @@ public abstract class UdpEndPoint {
 	 * @throws ExecutionException 
 	 * @throws InterruptedException 
 	 */
-	public byte[] send(String peerId, String command, boolean isCompressed, byte[] data) throws InterruptedException, ExecutionException {
+	public byte[] send(String peerId, String command, boolean isCompressed, byte[] data) throws Exception {
 		if (channel == null || !channel.isActive()) {
 			throw new RPCException("channel is not active");
 		}
-		RpcMsg output = new RpcMsg(RequestId.next(), false, myId, command, isCompressed, data);
+		RpcMsg output = new RpcMsg(RequestId.nextId(), false, myId, command, isCompressed, data);
 		RpcFuture future = udpChannelHandler.send(peerId, output);		
-		return future.get();
+		return future.get(output.getTotalFragment());
 	}
 	
 	/**
@@ -160,27 +161,21 @@ public abstract class UdpEndPoint {
 	 * 适用于客户端-->服务器
 	 * 
 	 * @param type
-	 * @param payload
+	 * @param data
 	 * @return
 	 * @throws ExecutionException 
 	 * @throws InterruptedException 
 	 */
 	public byte[] send(String command, boolean isCompressed, byte[] data) throws Exception {
-//		RpcFuture future = sendAsync(command, isCompressed, data);
 		if (channel == null || !channel.isActive()) {
 			throw new RPCException(" channel is not active");
 		}
 		if (isCompressed) {//发送进行压缩
 			data = GzipUtils.gzip(data);
 		}
-		RpcMsg output = new RpcMsg(RequestId.next(), false, myId, command, isCompressed, data);
+		RpcMsg output = new RpcMsg(RequestId.nextId(), false, myId, command, isCompressed, data);
 		RpcFuture future =  udpChannelHandler.send(getRemoteSocketAddress(), output);
-		return future.get();
-//		try {
-//			return future.get();
-//		} catch (Exception e) {
-//			return null;
-//		}
+		return future.get(output.getTotalFragment());
 	}
 	
 //	/**
