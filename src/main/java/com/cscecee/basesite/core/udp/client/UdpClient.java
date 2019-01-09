@@ -57,7 +57,7 @@ public class UdpClient extends UdpEndPoint {
 	 * 心跳协议
 	 * @return
 	 */
-	public String heatbeat() {
+	public String heartbeat() {
 		try {
 			byte[] result = send("heatbeat", false, ("hello").getBytes());
 			return new String(result, Charsets.UTF8);
@@ -69,7 +69,7 @@ public class UdpClient extends UdpEndPoint {
 	/**
 	 * 启用心跳线程
 	 */
-	public void startHeatbeat() {
+	public void startHeartbeat() {
 		heatbeatStarted = true;
 		if (heatbeatThread != null) {
 			heatbeatThread.interrupt();
@@ -79,7 +79,7 @@ public class UdpClient extends UdpEndPoint {
 			public void run() {
 				while(heatbeatStarted) {
 					try {
-						String result = heatbeat();
+						String result = heartbeat();
 						if ("hello".equalsIgnoreCase(result)) {//心跳有响应
 							isConnected = true;
 							logger.info("heatbeat return ok");

@@ -35,7 +35,7 @@ public class TestUdpClient {
 
 	public String bigdata(byte[] bytes) {
 		try {
-			System.out.println(bytes.length);
+			System.out.println("bigdata len-->" +bytes.length);
 			byte[] result = client.send("bigdata", false, bytes);
 			return new String(result, Charsets.UTF8);
 		} catch (Exception e) {
@@ -69,15 +69,17 @@ public class TestUdpClient {
 		UdpClient client = new UdpClient("localhost", 8800, 0, "zdy001");
 		client.bind();
 		client.register("time", new TimeRequestHandler());
-		client.heatbeat();
-		//client.startHeatbeat();
-		TestUdpClient testClient = new TestUdpClient(client);
-
-		System.out.printf("fib(%d) = %s\n", 2, (testClient.fib(2) + ""));
+		//for test heartbeat
+//		client.heartbeat();
+//		client.startHeartbeat();
 		
-		String strJsonObj = testClient.exp(2, 2) + "";
-		ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
-		System.out.printf("exp2(%d) = %d cost=%dns\n", 2, expResp.getValue(), expResp.getCostInNanos());
+		TestUdpClient testClient = new TestUdpClient(client);
+		//for test fib
+//		System.out.printf("fib(%d) = %s\n", 2, (testClient.fib(2) + ""));
+		//for test exp		
+//		String strJsonObj = testClient.exp(2, 2) + "";
+//		ExpResponse expResp = JSON.parseObject(strJsonObj, ExpResponse.class);
+//		System.out.printf("exp2(%d) = %d cost=%dns\n", 2, expResp.getValue(), expResp.getCostInNanos());
 		
 //		for (int i = 0; i < 30; i++) {
 //			try {
