@@ -45,7 +45,7 @@ public class FibRequestHandler extends RpcMsgHandler {
 //		buf.writeInt(outData.length);// len
 //		buf.writeBytes(outData);// data
 		//响应输出
-		RpcMsg rpcMsg = new RpcMsg(reqId, true, "0", "fib_rsp", false, outData);
+		RpcMsg rpcMsg = new RpcMsg(reqId, 1, "0", "fib_rsp", false, outData);
 		logger.info("send fib_res>>>>>" + fibs.get(n));
 		ctx.writeAndFlush(new DatagramPacket(rpcMsg.toByteBuf(), sender));
 	}

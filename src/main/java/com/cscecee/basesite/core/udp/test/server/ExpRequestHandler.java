@@ -43,7 +43,7 @@ public class ExpRequestHandler extends RpcMsgHandler {
 //		buf.writeInt(outData.length);// len
 //		buf.writeBytes(outData);// data
 		//响应输出
-		RpcMsg rpcMsg = new RpcMsg(reqId, true, "0", "exp_rsp", false, strOutData.getBytes());
+		RpcMsg rpcMsg = new RpcMsg(reqId, 1, "0", "exp_rsp", false, strOutData.getBytes());
 	
 		logger.info("send exp_res>>>>>" + strOutData);
 		ctx.writeAndFlush(new DatagramPacket(rpcMsg.toByteBuf(), sender));

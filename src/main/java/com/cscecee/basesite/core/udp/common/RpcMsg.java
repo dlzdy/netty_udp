@@ -20,7 +20,7 @@ public class RpcMsg implements Cloneable {
 	 */
 	protected long reqId;
 	/**
-	 * 分片序号0,1,2,3, 从0开始算第1帧, -1收全了
+	 * 分片序号0,1,2,3, 从0开始算第1帧, -1还没进行分包
 	 */
 	protected int fragmentIndex = -1;
 	/**
@@ -28,9 +28,9 @@ public class RpcMsg implements Cloneable {
 	 */
 	protected int totalFragment = 1;
 	/**
-	 * 请求0，响应1，
+	 * 0=req, 1=rsp, 2=ack
 	 */
-	protected boolean isRsp = false;
+	protected int direction = 0;
 	/**
 	 * 消息来源,server端=0，client=appid
 	 */
@@ -48,9 +48,9 @@ public class RpcMsg implements Cloneable {
 	 */
 	protected byte[] data;
 
-	public RpcMsg(long reqId, boolean isRsp, String fromId, String command, boolean isCompressed, byte[] data) {
+	public RpcMsg(long reqId, int direction, String fromId, String command, boolean isCompressed, byte[] data) {
 		this.reqId = reqId;
-		this.isRsp = isRsp;
+		this.direction = direction;
 		this.fromId = fromId;
 		this.command = command;
 		this.isCompressed = isCompressed;
@@ -58,20 +58,24 @@ public class RpcMsg implements Cloneable {
 		this.calculate();
 	}
 
-	public Boolean getIsRsp() {
-		return isRsp;
+	public int getDirection() {
+		return direction;
 	}
 
-	public void setIsRsp(Boolean isRsp) {
-		this.isRsp = isRsp;
+	public void setDirection(int direction) {
+		this.direction = direction;
 	}
 
-	public Boolean getIsCompressed() {
+	public boolean isCompressed() {
 		return isCompressed;
 	}
 
-	public void setIsCompressed(Boolean isCompressed) {
+	public void setCompressed(boolean isCompressed) {
 		this.isCompressed = isCompressed;
+	}
+
+	public void setTotalFragment(int totalFragment) {
+		this.totalFragment = totalFragment;
 	}
 
 	public String getFromId() {
@@ -106,20 +110,16 @@ public class RpcMsg implements Cloneable {
 		this.data = data;
 	}
 
-	public Integer getFragmentIndex() {
+	public int getFragmentIndex() {
 		return fragmentIndex;
 	}
 
-	public void setFragmentIndex(Integer fragmentIndex) {
+	public void setFragmentIndex(int fragmentIndex) {
 		this.fragmentIndex = fragmentIndex;
 	}
 
-	public Integer getTotalFragment() {
+	public int getTotalFragment() {
 		return totalFragment;
-	}
-
-	public void setTotalFragment(Integer totalFragment) {
-		this.totalFragment = totalFragment;
 	}
 
 	public ByteBuf toByteBuf() {
@@ -127,10 +127,10 @@ public class RpcMsg implements Cloneable {
 		buf.writeLong(this.getReqId());// requestId
 		buf.writeInt(this.getFragmentIndex());// fragmentIndex
 		buf.writeInt(this.getTotalFragment());// totalFragment
-		buf.writeBoolean(this.getIsRsp());// isRsp
+		buf.writeInt(this.getDirection());// isRsp
 		writeStr(buf, this.getFromId());// fromId
 		writeStr(buf, this.getCommand());// command
-		buf.writeBoolean(this.getIsCompressed());// isCompressed
+		buf.writeBoolean(this.isCompressed());// isCompressed
 		buf.writeInt(this.getData().length);
 		buf.writeBytes(this.getData());// data
 
@@ -141,7 +141,7 @@ public class RpcMsg implements Cloneable {
 		long reqId = in.readLong();// requestId
 		int fragmentIndex = in.readInt();// fragmentIndex
 		int totalFragment = in.readInt();// totalFragment
-		Boolean isRsp = in.readBoolean();// isRsp
+		int direction = in.readInt();// direction
 		String fromId = readStr(in);// fromId
 		String command = readStr(in);// command
 		Boolean isCompressed = in.readBoolean();// isCompressed
@@ -149,7 +149,7 @@ public class RpcMsg implements Cloneable {
 		byte[] data = new byte[dataLen];
 		in.readBytes(data);
 		//
-		RpcMsg rpcMsg = new RpcMsg(reqId, isRsp, fromId, command, isCompressed, data);
+		RpcMsg rpcMsg = new RpcMsg(reqId, direction, fromId, command, isCompressed, data);
 		rpcMsg.setFragmentIndex(fragmentIndex);
 		rpcMsg.setTotalFragment(totalFragment);
 		return rpcMsg;
@@ -184,9 +184,9 @@ public class RpcMsg implements Cloneable {
 		}else {
 			totalFragment = orignalDataLen/FRAGMENT_SIZE;
 		}
-		//不分组的的索引=1
+		//不分组的的索引=0
 		if (totalFragment == 1) {
-			fragmentIndex = -1;
+			fragmentIndex = 0;
 		}
 	}
 }

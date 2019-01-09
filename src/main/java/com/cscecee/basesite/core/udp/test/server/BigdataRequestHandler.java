@@ -32,7 +32,7 @@ public class BigdataRequestHandler extends RpcMsgHandler {
 		}
 
 		String rspData = "bigdata is ok";
-		RpcMsg rpcMsg = new RpcMsg(reqId, true, "0", "bigdata_rsp", false, rspData.getBytes());
+		RpcMsg rpcMsg = new RpcMsg(reqId, 1, "0", "bigdata_rsp", false, rspData.getBytes());
 
 		//响应输出
 		logger.info("send bigdata_rsp>>>>>" + rspData);

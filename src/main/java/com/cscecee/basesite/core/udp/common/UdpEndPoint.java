@@ -67,7 +67,7 @@ public abstract class UdpEndPoint {
 		// 里面是最大接收、发送的长度
 		bootstrap.option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(65535));		
 		// 4.配置handler和childHandler，数据处理器。
-		udpChannelHandler =  new UdpChannelHandler(this,10);
+		udpChannelHandler =  new UdpChannelHandler(this,200);
 		
 		// bootstrap.handler(new LoggingHandler(LogLevel.INFO));
 		bootstrap.handler(new ChannelInitializer<NioDatagramChannel>() {
@@ -137,7 +137,7 @@ public abstract class UdpEndPoint {
 		if (channel == null || !channel.isActive()) {
 			throw new RPCException("channel is not active");
 		}
-		RpcMsg output = new RpcMsg(RequestId.nextId(), false, myId, command, isCompressed, data);
+		RpcMsg output = new RpcMsg(RequestId.nextId(), 0, myId, command, isCompressed, data);
 		RpcFuture future = udpChannelHandler.send(peerId, output);		
 		return future.get(output.getTotalFragment());
 	}
@@ -173,7 +173,7 @@ public abstract class UdpEndPoint {
 		if (isCompressed) {//发送进行压缩
 			data = GzipUtils.gzip(data);
 		}
-		RpcMsg output = new RpcMsg(RequestId.nextId(), false, myId, command, isCompressed, data);
+		RpcMsg output = new RpcMsg(RequestId.nextId(), 0, myId, command, isCompressed, data);
 		RpcFuture future =  udpChannelHandler.send(getRemoteSocketAddress(), output);
 		return future.get(output.getTotalFragment());
 	}

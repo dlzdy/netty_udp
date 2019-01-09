@@ -26,7 +26,7 @@ public class TimeRequestHandler extends RpcMsgHandler {
 	public void handle(ChannelHandlerContext ctx, InetSocketAddress sender, long reqId, byte[] data) {
 		String rspData = new String(aDate.format(new Date()));
 	
-		RpcMsg rpcMsg = new RpcMsg(reqId, true, "0", "time_rsp", false, rspData.getBytes());
+		RpcMsg rpcMsg = new RpcMsg(reqId, 1, "0", "time_rsp", false, rspData.getBytes());
 
 		//响应输出
 		logger.info("send time_rsp>>>>>" + rspData);
